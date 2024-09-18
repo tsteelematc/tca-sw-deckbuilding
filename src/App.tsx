@@ -10,7 +10,9 @@ function App() {
       >
         SW Deckbuilding
       </h1>
-      <button>
+      <button
+        className='btn btn-primary'
+      >
         Play
       </button>
     </div>
