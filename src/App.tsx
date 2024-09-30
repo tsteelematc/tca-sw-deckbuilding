@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [selectedForceTrackPosition, setSelectedForceTrackPosition] = useState(7);
+
   return (
     <div
       className="App p-3"
@@ -38,8 +40,17 @@ function App() {
           <h2
             className="card-title"
           >
-            Leaderboard
+            Force Track
           </h2>
+          <ul className="steps steps-vertical">
+            <li className="step step-error" data-content={selectedForceTrackPosition === 1 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(1)}>+1 Resource</li>
+            <li className="step step-error" data-content={selectedForceTrackPosition === 2 ? '●' : ''}  onClick={() => setSelectedForceTrackPosition(2)}/>
+            <li className="step step-error" data-content={selectedForceTrackPosition === 3 ? '●' : ''}  onClick={() => setSelectedForceTrackPosition(3)}/>
+            <li className="step" data-content={selectedForceTrackPosition === 4 ? '●' : ''}  onClick={() => setSelectedForceTrackPosition(4)}/>
+            <li className="step step-info" data-content={selectedForceTrackPosition === 5 ? '●' : ''}  onClick={() => setSelectedForceTrackPosition(5)}/>
+            <li className="step step-info" data-content={selectedForceTrackPosition === 6 ? '●' : ''}  onClick={() => setSelectedForceTrackPosition(6)}/>
+            <li className="step step-info" data-content={selectedForceTrackPosition === 7 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(7)}>+1 Resource</li>
+          </ul>
         </div>
       </div>
 
