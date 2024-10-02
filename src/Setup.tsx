@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 export const Setup = () => {
+
+    const myNav = useNavigate();
+
     return (
         <div>
             <h1
@@ -8,6 +13,7 @@ export const Setup = () => {
             </h1>
             <button
                 className="btn btn-primary mb-3"
+                onClick={() => myNav("/play")}
             >
                 Start Playing
             </button>
