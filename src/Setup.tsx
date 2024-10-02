@@ -5,8 +5,12 @@ export const Setup = () => {
     const nav = useNavigate();
 
     return (
-        <div>
-            <h1>
+        <div
+            className="prose sm:prose-2xl"
+        >
+            <h1
+                className=""
+            >
                 Setup
             </h1>
             <button
