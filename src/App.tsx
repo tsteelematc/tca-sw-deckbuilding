@@ -6,11 +6,23 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+const Home = () => {
+  return (
+    <div>
+      <h1
+        className='text-2xl font-bold'
+      >
+        Home
+      </h1>
+    </div>
+  );
+};
+
 const myRouter = createHashRouter(
   [
     {
       path: "/",
-      element: <div>Home</div>,
+      element: <Home />,
     },
     {
       path: "/setup",
