@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 
 import {Home} from "./Home";
+import {Setup} from "./Setup";
+import {Play} from "./Play";
 
 // const Home = () => (
 //   <div>
@@ -23,11 +25,11 @@ const router = createHashRouter(
     }
     , {
       path: '/setup'
-      , element: <h1>Setup</h1>
+      , element: <Setup />
     }
     , {
       path: '/play'
-      , element: <h1>Play</h1>
+      , element: <Play />
     }
   ]
 );

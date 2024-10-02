@@ -1,4 +1,9 @@
+import { useNavigate } from "react-router-dom";
+
 export const Home = () => {
+
+    const nav = useNavigate();
+
     return (
         <div>
             <h1
@@ -8,6 +13,7 @@ export const Home = () => {
             </h1>
             <button
                 className='btn btn-primary btn-lg'
+                onClick={() => nav('/setup')}
             >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
