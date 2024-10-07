@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export const Play = () => {
+interface PlayProps {
+    numberOfGames: number;
+    setNumberOfGames: (n: number) => void;
+}
+
+export const Play: React.FC<PlayProps> = ({
+    numberOfGames 
+    , setNumberOfGames
+}) => {
 
     const nav = useNavigate();
-
-    const [numberOfGames, setNumberOfGames] = useState(3);
 
     return (
         <div>
