@@ -68,7 +68,6 @@ const App = () => {
   const [gameResults, setGameResults] = useState(dummyGameResults);
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
-
   //
   // Other code... Calculated state...
   //
