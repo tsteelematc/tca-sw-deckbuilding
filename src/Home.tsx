@@ -1,6 +1,15 @@
 import { useNavigate } from "react-router-dom";
+import { LeaderboardEntry } from "./game-results";
 
-export const Home = () => {
+interface HomeProps {
+    leaderboardData: LeaderboardEntry[];
+}
+
+export const Home: React.FC<HomeProps> = ({
+    leaderboardData
+}) => {
+
+    console.log(leaderboardData);
 
     // Use a react hook for navigation...
     const nav = useNavigate();
