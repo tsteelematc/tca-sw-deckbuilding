@@ -71,6 +71,11 @@ const App = () => {
   //
   // Other code... Calculated state...
   //
+  const addNewGameResult = (newResult: GameResult) => setGameResults([
+    ...gameResults 
+    , newResult
+  ]);
+    
   const myRouter = createHashRouter(
     [
       {
@@ -85,7 +90,9 @@ const App = () => {
       },
       {
         path: "/play",
-        element: <Play />,
+        element: <Play 
+          addNewGameResult={addNewGameResult}
+        />,
       },
     ]
   );
