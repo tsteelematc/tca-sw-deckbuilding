@@ -78,6 +78,7 @@ const App = () => {
 
 
   const [gameResults, setGameResults] = useState(dummyGameResults);
+  // const [gameResults, setGameResults] = useState<GameResult[]>([]);
   
 
   return (
