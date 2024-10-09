@@ -29,7 +29,7 @@ export const Home: React.FC<HomeProps> = ({
                 className="card bg-base-100 shadow-xl"
             >
                 <div
-                    className="card-body p-3"
+                    className="card-body p-3 overflow-x-hidden"
                 >
                     <h2
                         className="card-title"
