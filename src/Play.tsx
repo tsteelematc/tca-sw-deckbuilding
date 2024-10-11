@@ -13,6 +13,8 @@ export const Play: React.FC<PlayProps> = ({
     const nav = useNavigate();
     const [selectedForceTrackPosition, setSelectedForceTrackPosition] = useState(7);
     const [redOnTop, setRedOnTop] = useState(true);
+    const [resourceCount, setResourceCount] = useState(0);
+    const [damageCount, setDamageCount] = useState(0);
 
     return (
         <div>
@@ -25,7 +27,7 @@ export const Play: React.FC<PlayProps> = ({
                 className="card bg-base-100 shadow-xl mt-3 mb-5"
             >
                 <div
-                    className="card-body flex justify-items-center123"
+                    className="card-body flex justify-items-center123 -m-5"
                 >
                     <div
                         className="flex items-center"
@@ -73,18 +75,33 @@ export const Play: React.FC<PlayProps> = ({
                 className="card bg-base-100 shadow-xl mt-3 mb-5"
             >
                 <div
-                    className="card-body flex justify-items-center123"
+                    className="card-body flex justify-items-center123 -m-5"
                 >
                     <h2
                         className="card-title"
                     >
                         Turn Counters
                     </h2>
-                    <div
-                        className="flex flex-auto justify-center bg-success123"
-                    >
-                    </div>
-                </div>
+                    <div className="stats bg-base-200">
+                        <div className="stat">
+                            <div className="stat-title">Resources</div>
+                            <div className="stat-value text-success">{resourceCount}</div>
+                            <div className="stat-actions">
+                                <button className="btn btn-sm btn-outline btn-light" onClick={() => setResourceCount(resourceCount - 1)}>-</button>
+                                <button className="btn btn-link btn-sm" onClick={() => setResourceCount(0)}>Clear</button>
+                                <button className="btn btn-sm btn-outline" onClick={() => setResourceCount(resourceCount + 1)}>+</button>
+                            </div>
+                        </div>
+                        <div className="stat">
+                            <div className="stat-title">Damage</div>
+                            <div className="stat-value text-error">{damageCount}</div>
+                            <div className="stat-actions">
+                                <button className="btn btn-sm btn-outline" onClick={() => setDamageCount(damageCount - 1)}>-</button>
+                                <button className="btn btn-link btn-sm" onClick={() => setDamageCount(0)}>Clear</button>
+                                <button className="btn btn-sm btn-outline" onClick={() => setDamageCount(damageCount + 1)}>+</button>
+                            </div>
+                        </div>
+                    </div>                </div>
             </div>
             <button
                 className="btn btn-primary mb-3"
