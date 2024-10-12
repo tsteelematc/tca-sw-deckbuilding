@@ -28,7 +28,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                             Swap Sides
                         </button>
                     </div>
-                    <div className="flex flex-auto justify-center bg-success123">
+                    <div className="flex flex-auto justify-center md:justify-start">
                         <div className="flex flex-col items-center">
                             <p className="font-semibold mr-40">+1 Resource</p>
                             <div className="flex flex-col">
