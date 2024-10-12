@@ -22,10 +22,10 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                     <div className="flex items-center text-nowrap">
                         <h2 className="card-title">Force Tracker</h2>
                         <button
-                            className="btn btn-link"
+                            className="btn btn-outline btn-xs ml-3"
                             onClick={() => setRedOnTop(!redOnTop)}
                         >
-                            Swap Sides
+                            Swap Colors
                         </button>
                     </div>
                     <div className="flex flex-auto justify-center md:justify-start">
