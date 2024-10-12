@@ -82,13 +82,13 @@ export const Play: React.FC<PlayProps> = ({
                     >
                         Turn Counters
                     </h2>
-                    <div className="stats bg-base-200">
+                    <div className="stats stats-vertical bg-base-200">
                         <div className="stat">
                             <div className="stat-title">Resources</div>
                             <div className="stat-value text-success">{resourceCount}</div>
                             <div className="stat-actions">
                                 <button className="btn btn-sm btn-outline btn-light" onClick={() => setResourceCount(resourceCount - 1)}>-</button>
-                                <button className="btn btn-link btn-sm" onClick={() => setResourceCount(0)}>Clear</button>
+                                <button className="btn btn-sm btn-outline btn-sm mx-5" onClick={() => setResourceCount(0)}>0</button>
                                 <button className="btn btn-sm btn-outline" onClick={() => setResourceCount(resourceCount + 1)}>+</button>
                             </div>
                         </div>
@@ -97,7 +97,7 @@ export const Play: React.FC<PlayProps> = ({
                             <div className="stat-value text-error">{damageCount}</div>
                             <div className="stat-actions">
                                 <button className="btn btn-sm btn-outline" onClick={() => setDamageCount(damageCount - 1)}>-</button>
-                                <button className="btn btn-link btn-sm" onClick={() => setDamageCount(0)}>Clear</button>
+                                <button className="btn btn-sm btn-outline btn-sm mx-5" onClick={() => setDamageCount(0)}>0</button>
                                 <button className="btn btn-sm btn-outline" onClick={() => setDamageCount(damageCount + 1)}>+</button>
                             </div>
                         </div>
