@@ -88,19 +88,19 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                             <div className="stat-value text-success">{resourceCount}</div>
                             <div className="stat-actions">
                                 <button
-                                    className="btn btn-sm btn-outline btn-light"
+                                    className="btn btn-md btn-outline btn-light"
                                     onClick={() => setResourceCount(resourceCount - 1)}
                                 >
                                     -
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-outline btn-sm mx-5"
+                                    className="btn btn-md btn-outline btn-sm mx-5"
                                     onClick={() => setResourceCount(0)}
                                 >
                                     0
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-outline"
+                                    className="btn btn-md btn-outline"
                                     onClick={() => setResourceCount(resourceCount + 1)}
                                 >
                                     +
@@ -112,19 +112,19 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                             <div className="stat-value text-error">{damageCount}</div>
                             <div className="stat-actions">
                                 <button
-                                    className="btn btn-sm btn-outline"
+                                    className="btn btn-md btn-outline"
                                     onClick={() => setDamageCount(damageCount - 1)}
                                 >
                                     -
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-outline btn-sm mx-5"
+                                    className="btn btn-md btn-outline btn-sm mx-5"
                                     onClick={() => setDamageCount(0)}
                                 >
                                     0
                                 </button>
                                 <button
-                                    className="btn btn-sm btn-outline"
+                                    className="btn btn-md btn-outline"
                                     onClick={() => setDamageCount(damageCount + 1)}
                                 >
                                     +
