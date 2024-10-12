@@ -24,13 +24,13 @@ export const Play: React.FC<PlayProps> = ({
                 Play
             </h1>
             <div
-                className="card bg-base-100 shadow-xl mt-3 mb-5"
+                className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-x-hidden"
             >
                 <div
                     className="card-body flex justify-items-center123 -m-5"
                 >
                     <div
-                        className="flex items-center"
+                        className="flex items-center text-nowrap"
                     >
                         <h2
                             className="card-title"
@@ -49,21 +49,29 @@ export const Play: React.FC<PlayProps> = ({
                     >
                         <div className="flex flex-col items-center">
                             <p
-                                className="font-bold"
+                                className="font-semibold mr-40"
                             >
                                 +1 Resource
                             </p>
-                            <ul className="steps steps-vertical">
-                                <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 1 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(1)} />
-                                <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 2 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(2)} />
-                                <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 3 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(3)} />
-                                <li className="step" data-content={selectedForceTrackPosition === 4 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(4)} />
-                                <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 5 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(5)} />
-                                <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 6 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(6)} />
-                                <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 7 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(7)} />
-                            </ul>
+                            <div
+                                className="flex flex-col"
+                            >
+                                <ul className="steps mr-20">
+                                    <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 1 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(1)} />
+                                    <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 2 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(2)} />
+                                    <li className={`step ${redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 3 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(3)} />
+                                </ul>
+                                <ul className="steps">
+                                    <li className="step" data-content={selectedForceTrackPosition === 4 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(4)} />
+                                </ul>
+                                <ul className="steps ml-20">
+                                    <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 5 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(5)} />
+                                    <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 6 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(6)} />
+                                    <li className={`step ${!redOnTop ? 'step-error' : 'step-info'}`} data-content={selectedForceTrackPosition === 7 ? '●' : ''} onClick={() => setSelectedForceTrackPosition(7)} />
+                                </ul>
+                            </div>
                             <p
-                                className="font-bold"
+                                className="font-semibold ml-40"
                             >
                                 +1 Resource
                             </p>
@@ -72,13 +80,13 @@ export const Play: React.FC<PlayProps> = ({
                 </div>
             </div>
             <div
-                className="card bg-base-100 shadow-xl mt-3 mb-5"
+                className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-x-hidden"
             >
                 <div
                     className="card-body flex justify-items-center123 -m-5"
                 >
                     <h2
-                        className="card-title"
+                        className="card-title text-nowrap"
                     >
                         Turn Counters
                     </h2>
