@@ -21,18 +21,40 @@ export type LeaderboardEntry = {
 //
 export const getLeaderboard = (
     results: GameResult[]
-): LeaderboardEntry[] => getPreviousPlayers(results)
-    .map(
-        player => getLeaderboardEntry(
-            results
-            , player
-        )
-    )
+): LeaderboardEntry[] => {
+  const lbEntries = getPreviousPlayers(results).map((player) =>
+    getLeaderboardEntry(results, player)
+  );
+  //
+  // Biz rule ! ! !
+  //
+  // Zero win players should be sorted differently...
+  //
+  // The more games you have without any wins make you a worse player ! ! !
+  //
+  // So filter and sort two lb entry arrays differently, i-o-g : - )
+  //
+  const playersWithWins = lbEntries
+    .filter((x) => x.wins > 0)
     .sort(
-        (a, b) => (parseFloat(b.avg) * 1000 + b.wins + b.losses) 
+      (a, b) =>
+        (parseFloat(b.avg) * 1000 + b.wins + b.losses) 
             - (parseFloat(a.avg) * 1000 + a.wins + a.losses)
-    )
-;
+    );
+
+  const playersWithoutWins = lbEntries
+    .filter((x) => x.wins === 0)
+    .sort(
+      (a, b) =>
+        (parseFloat(a.avg) * 1000 /* + a.wins */ + a.losses)
+            - (parseFloat(b.avg) * 1000 /* + b.wins */ + b.losses)
+    );
+
+    return [
+        ...playersWithWins
+        , ...playersWithoutWins
+    ];
+};
 
 //
 // Helper funcs...
