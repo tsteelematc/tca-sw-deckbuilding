@@ -30,7 +30,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                     </div>
                     <div className="flex flex-auto justify-center md:justify-start">
                         <div className="flex flex-col items-center">
-                            <p className="font-semibold mr-40">+1 Resource</p>
+                            <p className={`${selectedForceTrackPosition === 1 ? 'font-semibold' : 'font-thin'} mr-40`}>+1 Resource</p>
                             <div className="flex flex-col">
                                 <ul className="steps mr-20">
                                     <li
@@ -74,7 +74,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                                     />
                                 </ul>
                             </div>
-                            <p className="font-semibold ml-40">+1 Resource</p>
+                            <p className={`${selectedForceTrackPosition === 7 ? 'font-semibold' : 'font-thin'} ml-40`}>+1 Resource</p>
                         </div>
                     </div>
                 </div>
