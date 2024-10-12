@@ -23,7 +23,16 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                         <h2 className="card-title">Force Tracker</h2>
                         <button
                             className="btn btn-outline btn-xs ml-3"
-                            onClick={() => setRedOnTop(!redOnTop)}
+                            onClick={() => {
+                                setRedOnTop(!redOnTop);
+                                setSelectedForceTrackPosition(
+                                    selectedForceTrackPosition > 4
+                                        ? 7 - selectedForceTrackPosition + 1
+                                        : selectedForceTrackPosition < 4
+                                            ? 7 - selectedForceTrackPosition + 1
+                                            : 4
+                                );
+                            }}
                         >
                             Swap Colors
                         </button>
