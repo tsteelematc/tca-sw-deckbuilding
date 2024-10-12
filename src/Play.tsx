@@ -17,7 +17,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
     return (
         <div>
             <h1 className="text-2xl font-bold mb-3">Play</h1>
-            <div className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-x-hidden">
+            <div className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-hidden">
                 <div className="card-body flex justify-items-center123 -m-5">
                     <div className="flex items-center text-nowrap">
                         <h2 className="card-title">Force Tracker</h2>
@@ -79,7 +79,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                     </div>
                 </div>
             </div>
-            <div className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-x-hidden">
+            <div className="card bg-base-100 shadow-xl mt-3 mb-5 overflow-hidden">
                 <div className="card-body flex justify-items-center123 -m-5">
                     <h2 className="card-title text-nowrap">Turn Counters</h2>
                     <div className="stats stats-vertical bg-base-200">
