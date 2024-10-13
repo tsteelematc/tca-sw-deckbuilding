@@ -95,48 +95,58 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                         <div className="stat">
                             <div className="stat-title">Resources</div>
                             <div className="stat-value text-success">{resourceCount}</div>
-                            <div className="stat-actions">
+                            <div className="stat-actions flex align-center">
                                 <button
                                     className="btn btn-md btn-outline btn-light"
                                     onClick={() => setResourceCount(resourceCount - 1)}
                                 >
-                                    -
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                        <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                                    </svg>
                                 </button>
                                 <button
-                                    className="btn btn-md btn-outline btn-sm mx-5"
+                                    className="btn btn-md btn-outline btn-md mx-5"
                                     onClick={() => setResourceCount(0)}
                                 >
-                                    0
+                                    Clear
                                 </button>
                                 <button
                                     className="btn btn-md btn-outline"
                                     onClick={() => setResourceCount(resourceCount + 1)}
                                 >
-                                    +
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                        <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
+                                    </svg>
                                 </button>
                             </div>
                         </div>
                         <div className="stat">
                             <div className="stat-title">Damage</div>
                             <div className="stat-value text-error">{damageCount}</div>
-                            <div className="stat-actions">
+                            <div className="stat-actions flex align-center">
                                 <button
                                     className="btn btn-md btn-outline"
                                     onClick={() => setDamageCount(damageCount - 1)}
                                 >
-                                    -
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                        <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                                    </svg>
+
                                 </button>
                                 <button
-                                    className="btn btn-md btn-outline btn-sm mx-5"
+                                    className="btn btn-md btn-outline btn-md mx-5"
                                     onClick={() => setDamageCount(0)}
                                 >
-                                    0
+                                    Clear
                                 </button>
                                 <button
                                     className="btn btn-md btn-outline"
                                     onClick={() => setDamageCount(damageCount + 1)}
                                 >
-                                    +
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
+                                        <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
+                                    </svg>
+
                                 </button>
                             </div>
                         </div>
