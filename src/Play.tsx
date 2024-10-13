@@ -105,7 +105,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                                     </svg>
                                 </button>
                                 <button
-                                    className="btn btn-md btn-outline btn-md mx-5"
+                                    className="btn btn-md btn-outline btn-md mx-5 font-light"
                                     onClick={() => setResourceCount(0)}
                                 >
                                     Clear
@@ -134,7 +134,7 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
 
                                 </button>
                                 <button
-                                    className="btn btn-md btn-outline btn-md mx-5"
+                                    className="btn btn-md btn-outline btn-md mx-5 font-light"
                                     onClick={() => setDamageCount(0)}
                                 >
                                     Clear
