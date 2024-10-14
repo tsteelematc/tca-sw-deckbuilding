@@ -54,10 +54,7 @@ export const getLeaderboard = (
     ];
 };
 
-//
-// Helper funcs...
-//
-const getPreviousPlayers = (results: GameResult[]) => {
+export const getPreviousPlayers = (results: GameResult[]) => {
     
     const previousPlayers = results.flatMap(
         x => x.players
@@ -72,6 +69,9 @@ const getPreviousPlayers = (results: GameResult[]) => {
     );
 };
 
+//
+// Helper funcs...
+//
 const getLeaderboardEntry = (
     results: GameResult[]
     , player: string

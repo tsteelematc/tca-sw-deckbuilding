@@ -1,7 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-export const Setup = () => {
+interface SetupProps {
+    previousPlayers: string[];
+}
 
+export const Setup: React.FC<SetupProps> = ({previousPlayers}) => {
+
+    console.log(previousPlayers);
+    
     const myNav = useNavigate();
 
     return (
