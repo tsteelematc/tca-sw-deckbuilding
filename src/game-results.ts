@@ -45,9 +45,7 @@ export const getLeaderboard = (
   const playersWithoutWins = lbEntries
     .filter((x) => x.wins === 0)
     .sort(
-      (a, b) =>
-        (parseFloat(a.avg) * 1000 /* + a.wins */ + a.losses)
-            - (parseFloat(b.avg) * 1000 /* + b.wins */ + b.losses)
+      (a, b) => a.losses - b.losses
     );
 
     return [
