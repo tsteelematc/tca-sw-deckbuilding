@@ -69,6 +69,7 @@ const App = () => {
   const [gameResults, setGameResults] = useState(dummyGameResults);
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
+  const [currentPlayers, setCurrentPlayers] = useState<string[]>([]);
   //
   // Other code... Calculated state...
   //
@@ -89,12 +90,14 @@ const App = () => {
         path: "/setup",
         element: <Setup 
           previousPlayers={getPreviousPlayers(gameResults)}
+          setCurrentPlayers={setCurrentPlayers}
         />,
       },
       {
         path: "/play",
         element: <Play 
           addNewGameResult={addNewGameResult}
+          currentPlayers={currentPlayers}
         />,
       },
     ]

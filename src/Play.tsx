@@ -4,9 +4,14 @@ import { useState } from "react";
 
 interface PlayProps {
     addNewGameResult: (gr: GameResult) => void;
+    currentPlayers: string[];
 }
 
-export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
+export const Play: React.FC<PlayProps> = ({ 
+    addNewGameResult 
+    , currentPlayers
+}) => {
+
     const nav = useNavigate();
     const [selectedForceTrackPosition, setSelectedForceTrackPosition] =
         useState(7);
@@ -153,20 +158,25 @@ export const Play: React.FC<PlayProps> = ({ addNewGameResult }) => {
                     </div>
                 </div>
             </div>
-            <button
-                className="btn btn-primary mb-3"
-                onClick={() => {
-                    addNewGameResult({
-                        startTime: "",
-                        endTime: "",
-                        winner: "Barbie",
-                        players: ["Barbie", "Ken"],
-                    });
-                    nav(-2);
-                }}
-            >
-                Game Over
-            </button>
+            {
+                currentPlayers.map(x => (
+                    <button
+                        key={x}
+                        className="btn btn-primary mb-3 ml-3"
+                        onClick={() => {
+                            addNewGameResult({
+                                startTime: "",
+                                endTime: "",
+                                winner: x,
+                                players: currentPlayers,
+                            });
+                            nav(-2);
+                        }}
+                    >
+                        {x} Won
+                    </button>
+                ))
+            }
         </div>
     );
 };

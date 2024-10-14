@@ -3,9 +3,13 @@ import { useNavigate } from "react-router-dom";
 
 interface SetupProps {
     previousPlayers: string[];
+    setCurrentPlayers: (players: string[]) => void;
 }
 
-export const Setup: React.FC<SetupProps> = ({previousPlayers}) => {
+export const Setup: React.FC<SetupProps> = ({
+    previousPlayers
+    , setCurrentPlayers
+}) => {
     
     const myNav = useNavigate();
 
@@ -25,7 +29,14 @@ export const Setup: React.FC<SetupProps> = ({previousPlayers}) => {
             </h1>
             <button
                 className="btn btn-primary mb-3"
-                onClick={() => myNav("/play")}
+                onClick={() => {
+                    setCurrentPlayers(
+                        availablePlayers
+                            .filter(x => x.checked)
+                            .map(x => x.name)
+                    );
+                    myNav("/play");
+                }}
             >
                 Start Playing
             </button>
