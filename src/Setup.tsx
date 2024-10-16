@@ -49,6 +49,7 @@ export const Setup: React.FC<SetupProps> = ({
         setNewPlayerName("");
     };
 
+    const twoPlayersChosen = availablePlayers.filter(x => x.checked).length === 2;
 
     return (
         <div>
@@ -59,6 +60,7 @@ export const Setup: React.FC<SetupProps> = ({
             </h1>
             <button
                 className="btn btn-primary mb-3"
+                disabled={!twoPlayersChosen}
                 onClick={() => {
                     setCurrentPlayers(
                         availablePlayers
@@ -68,7 +70,11 @@ export const Setup: React.FC<SetupProps> = ({
                     myNav("/play");
                 }}
             >
-                Start Playing
+                {
+                    !twoPlayersChosen
+                        ? "Choose 2 players below"
+                        : "Start Playing"
+                }
             </button>
             <div 
                 className="card bg-base-100 shadow-xl"
@@ -87,6 +93,7 @@ export const Setup: React.FC<SetupProps> = ({
                         />
                         <button 
                             className="btn join-item"
+                            disabled={newPlayerName.length === 0}
                             onClick={validateAndAddNewPlayer}
                         >
                             Add
