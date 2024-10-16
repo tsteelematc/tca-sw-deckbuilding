@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface SetupProps {
@@ -22,6 +22,8 @@ export const Setup: React.FC<SetupProps> = ({
 
     const [newPlayerName, setNewPlayerName] = useState("");
 
+    const validationDialogRef = useRef<HTMLDialogElement | null>(null);
+
     const validateAndAddNewPlayer = () => {
 
         // Bail if nothing typed in the name or if there is a duplicate name...
@@ -31,6 +33,7 @@ export const Setup: React.FC<SetupProps> = ({
                 x => x.name.toUpperCase() === newPlayerName.toUpperCase()
             )
         ) {
+            validationDialogRef.current?.showModal();
             return;
         }
 
@@ -132,6 +135,33 @@ export const Setup: React.FC<SetupProps> = ({
                     }
                 </div>
             </div>
+            <dialog
+                ref={validationDialogRef} 
+                className="modal"
+            >
+                <div 
+                    className="modal-box"
+                >
+                    <form 
+                        method="dialog"
+                    >
+                        <button 
+                            className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+                                ✕
+                        </button>
+                    </form>
+                    <h3 
+                        className="font-bold text-lg"
+                    >
+                        Duplicate player name...
+                    </h3>
+                    <p 
+                        className="py-4"
+                    >
+                        Please enter unique name...
+                    </p>
+                </div>
+            </dialog>
         </div>
     );
 };
