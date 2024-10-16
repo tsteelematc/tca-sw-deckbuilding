@@ -158,7 +158,7 @@ export const Setup: React.FC<SetupProps> = ({
                     <p 
                         className="py-4"
                     >
-                        Please enter unique name...
+                        Choose this player below if it is the same {newPlayerName}, otherwise make it unique, maybe 'Cheating {newPlayerName}' : - O
                     </p>
                 </div>
             </dialog>
