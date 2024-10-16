@@ -20,6 +20,36 @@ export const Setup: React.FC<SetupProps> = ({
         }))
     );
 
+    const [newPlayerName, setNewPlayerName] = useState("");
+
+    const validateAndAddNewPlayer = () => {
+
+        // Bail if nothing typed in the name or if there is a duplicate name...
+        if (
+            newPlayerName.length === 0
+            || availablePlayers.some(
+                x => x.name.toUpperCase() === newPlayerName.toUpperCase()
+            )
+        ) {
+            return;
+        }
+
+        setAvailablePlayers(
+            [
+                ...availablePlayers
+                , {
+                    name: newPlayerName
+                    , checked: true
+                }
+            ].sort(
+                (a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase())
+            )
+        );
+
+        setNewPlayerName("");
+    };
+
+
     return (
         <div>
             <h1
@@ -46,6 +76,22 @@ export const Setup: React.FC<SetupProps> = ({
                 <div 
                     className="card-body"
                 >
+                    <div 
+                        className="join"
+                    >
+                        <input 
+                            className="input input-bordered join-item" 
+                            placeholder="Enter new player name"
+                            value={newPlayerName} 
+                            onChange={(e) => setNewPlayerName(e.target.value)}
+                        />
+                        <button 
+                            className="btn join-item"
+                            onClick={validateAndAddNewPlayer}
+                        >
+                            Add
+                        </button>
+                    </div>
                     {
                         availablePlayers.map(x => (
                             <div 
