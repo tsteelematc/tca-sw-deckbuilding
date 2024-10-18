@@ -158,25 +158,36 @@ export const Play: React.FC<PlayProps> = ({
                     </div>
                 </div>
             </div>
-            {
-                currentPlayers.map(x => (
-                    <button
-                        key={x.name}
-                        className="btn btn-primary mb-3 ml-3"
-                        onClick={() => {
-                            addNewGameResult({
-                                startTime: "",
-                                endTime: "",
-                                winner: x.name,
-                                players: currentPlayers.map(y => y.name),
-                            });
-                            nav(-2);
-                        }}
-                    >
-                        {x.name} ({x.faction}) Won
-                    </button>
-                ))
-            }
+            <div
+                className="flex flex-col"
+            >
+                {
+                    currentPlayers.map(x => (
+                        <button
+                            key={x.name}
+                            className="btn btn-outline mb-3 ml-3"
+                            onClick={() => {
+                                addNewGameResult({
+                                    startTime: "",
+                                    endTime: "",
+                                    winner: x.name,
+                                    players: currentPlayers.map(y => y.name),
+                                });
+                                nav(-2);
+                            }}
+                        >
+                            <div>
+                                {x.name} Won
+                            </div>
+                            <div
+                                                        className={`badge badge-outline ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
+                                                    >
+                                                        {x.faction}
+                                                    </div>                            
+                        </button>
+                    ))
+                }
         </div>
+    </div>
     );
 };
