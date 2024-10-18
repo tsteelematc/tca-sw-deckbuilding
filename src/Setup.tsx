@@ -6,6 +6,14 @@ interface SetupProps {
     setCurrentPlayers: (players: string[]) => void;
 }
 
+type Faction = undefined | "Empire" | "Rebel" | "Separatist" | "Republic";
+
+interface AvailablePlayer {
+    name: string;
+    checked: boolean;
+    faction: Faction;
+}
+
 export const Setup: React.FC<SetupProps> = ({
     previousPlayers
     , setCurrentPlayers
@@ -13,10 +21,11 @@ export const Setup: React.FC<SetupProps> = ({
     
     const myNav = useNavigate();
 
-    const [availablePlayers, setAvailablePlayers] = useState(
+    const [availablePlayers, setAvailablePlayers] = useState<AvailablePlayer[]>(
         previousPlayers.map(x => ({
             name: x 
             , checked: false
+            , faction: undefined
         }))
     );
 
@@ -43,6 +52,7 @@ export const Setup: React.FC<SetupProps> = ({
                 , {
                     name: newPlayerName
                     , checked: true
+                    , faction: undefined
                 }
             ].sort(
                 (a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase())
@@ -53,6 +63,15 @@ export const Setup: React.FC<SetupProps> = ({
     };
 
     const twoPlayersChosen = availablePlayers.filter(x => x.checked).length === 2;
+
+    const setPlayerFaction = (playerName: string, faction: Faction) => setAvailablePlayers(
+        availablePlayers.map(x =>({
+            ...x 
+            , faction: x.name === playerName 
+                ? faction 
+                : x.faction
+        }))
+    );
 
     return (
         <div>
@@ -130,6 +149,16 @@ export const Setup: React.FC<SetupProps> = ({
                                             className="label-text ml-3"
                                         >
                                             {x.name}
+                                            {
+                                                x.checked && x.faction && (
+                                                    <div
+                                                        className={`badge badge-outline ml-3 ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
+                                                    >
+                                                        {x.faction}
+                                                    </div>
+                                                )
+
+                                            }
                                         </span>
                                     </label>
                                 </div>
@@ -138,13 +167,37 @@ export const Setup: React.FC<SetupProps> = ({
                                         <div
                                             className="flex flex-col"
                                         >
-                                            <div className="join mt-3 ml-10">
-                                                <button className="btn btn-sm btn-info join-item w-1/2">Empire</button>
-                                                <button className="btn btn-sm btn-error join-item w-1/2">Rebel</button>
+                                            <div 
+                                                className="join mt-3 ml-10"
+                                            >
+                                                <button 
+                                                    className="btn btn-sm btn-info join-item w-1/2"
+                                                    onClick={() => setPlayerFaction(x.name, "Empire")}
+                                                >
+                                                    Empire
+                                                </button>
+                                                <button 
+                                                    className="btn btn-sm btn-error join-item w-1/2"
+                                                    onClick={() => setPlayerFaction(x.name, "Rebel")}
+                                                >
+                                                    Rebel
+                                                </button>
                                             </div>
-                                            <div className="join mt-3 ml-10">
-                                                <button className="btn btn-sm btn-info join-item w-1/2">Separatist</button>
-                                                <button className="btn btn-sm btn-error join-item w-1/2">Republic</button>
+                                            <div 
+                                                className="join mt-3 ml-10"
+                                            >
+                                                <button 
+                                                    className="btn btn-sm btn-info join-item w-1/2"
+                                                    onClick={() => setPlayerFaction(x.name, "Separatist")}
+                                                >
+                                                    Separatist
+                                                </button>
+                                                <button 
+                                                    className="btn btn-sm btn-error join-item w-1/2"
+                                                    onClick={() => setPlayerFaction(x.name, "Republic")}
+                                                >
+                                                    Republic
+                                                </button>
                                             </div>
                                         </div>
                                     )
