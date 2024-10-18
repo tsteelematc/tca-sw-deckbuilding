@@ -174,13 +174,13 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-info join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2"
                                                     onClick={() => setPlayerFaction(x.name, "Empire")}
                                                 >
                                                     Empire
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-error join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2"
                                                     onClick={() => setPlayerFaction(x.name, "Rebel")}
                                                 >
                                                     Rebel
@@ -190,13 +190,13 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-info join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2"
                                                     onClick={() => setPlayerFaction(x.name, "Separatist")}
                                                 >
                                                     Separatist
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-error join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2"
                                                     onClick={() => setPlayerFaction(x.name, "Republic")}
                                                 >
                                                     Republic
