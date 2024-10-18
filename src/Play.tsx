@@ -127,7 +127,7 @@ export const Play: React.FC<PlayProps> = ({
                         </div>
                         <div className="stat">
                             <div className="stat-title">Damage</div>
-                            <div className="stat-value text-error">{damageCount}</div>
+                            <div className="stat-value text-warning">{damageCount}</div>
                             <div className="stat-actions flex align-center">
                                 <button
                                     className="btn btn-md btn-outline"
@@ -136,7 +136,6 @@ export const Play: React.FC<PlayProps> = ({
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-6">
                                         <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
                                     </svg>
-
                                 </button>
                                 <button
                                     className="btn btn-md btn-outline btn-md mx-5 font-light"
@@ -180,10 +179,10 @@ export const Play: React.FC<PlayProps> = ({
                                 {x.name} Won
                             </div>
                             <div
-                                                        className={`badge badge-outline ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
-                                                    >
-                                                        {x.faction}
-                                                    </div>                            
+                                className={`badge badge-outline ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
+                            >
+                                {x.faction}
+                            </div>                            
                         </button>
                     ))
                 }
