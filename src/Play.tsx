@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { GameResult } from "./game-results";
+import { CurrentPlayer, Faction, GameResult } from "./game-results";
 import { useState } from "react";
 
 interface PlayProps {
     addNewGameResult: (gr: GameResult) => void;
-    currentPlayers: string[];
+    currentPlayers: CurrentPlayer[];
 }
 
 export const Play: React.FC<PlayProps> = ({ 
@@ -161,19 +161,19 @@ export const Play: React.FC<PlayProps> = ({
             {
                 currentPlayers.map(x => (
                     <button
-                        key={x}
+                        key={x.name}
                         className="btn btn-primary mb-3 ml-3"
                         onClick={() => {
                             addNewGameResult({
                                 startTime: "",
                                 endTime: "",
-                                winner: x,
-                                players: currentPlayers,
+                                winner: x.name,
+                                players: currentPlayers.map(y => y.name),
                             });
                             nav(-2);
                         }}
                     >
-                        {x} Won
+                        {x.name} ({x.faction}) Won
                     </button>
                 ))
             }

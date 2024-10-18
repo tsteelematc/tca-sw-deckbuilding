@@ -11,6 +11,7 @@ import { Setup } from "./Setup";
 import { Play } from "./Play";
 
 import { 
+  CurrentPlayer,
   GameResult 
   , getLeaderboard
   , getPreviousPlayers
@@ -69,7 +70,7 @@ const App = () => {
   const [gameResults, setGameResults] = useState(dummyGameResults);
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
-  const [currentPlayers, setCurrentPlayers] = useState<string[]>([]);
+  const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
   //
   // Other code... Calculated state...
   //

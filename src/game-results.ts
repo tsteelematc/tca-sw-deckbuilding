@@ -16,6 +16,13 @@ export type LeaderboardEntry = {
     name: string;  
 };
 
+export type Faction = undefined | "Empire" | "Rebel" | "Separatist" | "Republic";
+
+export type CurrentPlayer = {
+    name: string;
+    faction: Faction;
+};
+
 //
 // Exported funcs...
 //

@@ -1,12 +1,11 @@
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CurrentPlayer, Faction } from "./game-results";
 
 interface SetupProps {
     previousPlayers: string[];
-    setCurrentPlayers: (players: string[]) => void;
+    setCurrentPlayers: (players: CurrentPlayer[]) => void;
 }
-
-type Faction = undefined | "Empire" | "Rebel" | "Separatist" | "Republic";
 
 interface AvailablePlayer {
     name: string;
@@ -87,7 +86,11 @@ export const Setup: React.FC<SetupProps> = ({
                     setCurrentPlayers(
                         availablePlayers
                             .filter(x => x.checked)
-                            .map(x => x.name)
+                            .map(x => ({
+                                name: x.name
+                                , faction: x.faction
+                            })
+                        )
                     );
                     myNav("/play");
                 }}
