@@ -61,7 +61,10 @@ export const Setup: React.FC<SetupProps> = ({
         setNewPlayerName("");
     };
 
-    const twoPlayersChosen = availablePlayers.filter(x => x.checked).length === 2;
+    const twoPlayersAndFactionsChosen = 
+        availablePlayers.filter(x => x.checked).length === 2
+        && availablePlayers.filter(x => x.checked && x.faction).length === 2
+    ;
 
     const setPlayerFaction = (playerName: string, faction: Faction) => setAvailablePlayers(
         availablePlayers.map(x =>({
@@ -81,7 +84,7 @@ export const Setup: React.FC<SetupProps> = ({
             </h1>
             <button
                 className="btn btn-primary mb-3"
-                disabled={!twoPlayersChosen}
+                disabled={!twoPlayersAndFactionsChosen}
                 onClick={() => {
                     setCurrentPlayers(
                         availablePlayers
@@ -96,8 +99,8 @@ export const Setup: React.FC<SetupProps> = ({
                 }}
             >
                 {
-                    !twoPlayersChosen
-                        ? "Choose 2 players below"
+                    !twoPlayersAndFactionsChosen
+                        ? "Choose 2 players with factions below"
                         : "Start Playing"
                 }
             </button>
