@@ -104,32 +104,51 @@ export const Setup: React.FC<SetupProps> = ({
                     </div>
                     {
                         availablePlayers.map(x => (
-                            <div 
-                                className="form-control"
+                            <div
                                 key={x.name}
                             >
-                                <label 
-                                    className="cursor-pointer flex mt-3"
+                                <div 
+                                    className="form-control"
                                 >
-                                    <input 
-                                        type="checkbox" 
-                                        className="checkbox" 
-                                        checked={x.checked}
-                                        onChange={() => setAvailablePlayers(
-                                            availablePlayers.map(y =>({
-                                                ...y 
-                                                , checked: y.name === x.name 
-                                                    ? !y.checked 
-                                                    : y.checked
-                                            }))
-                                        )}
-                                    />
-                                    <span 
-                                        className="label-text ml-3"
+                                    <label 
+                                        className="cursor-pointer flex mt-3"
                                     >
-                                        {x.name}
-                                    </span>
-                                </label>
+                                        <input 
+                                            type="checkbox" 
+                                            className="checkbox" 
+                                            checked={x.checked}
+                                            onChange={() => setAvailablePlayers(
+                                                availablePlayers.map(y =>({
+                                                    ...y 
+                                                    , checked: y.name === x.name 
+                                                        ? !y.checked 
+                                                        : y.checked
+                                                }))
+                                            )}
+                                        />
+                                        <span 
+                                            className="label-text ml-3"
+                                        >
+                                            {x.name}
+                                        </span>
+                                    </label>
+                                </div>
+                                {
+                                    x.checked && (
+                                        <div
+                                            className="flex flex-col"
+                                        >
+                                            <div className="join mt-3 ml-10">
+                                                <button className="btn btn-sm btn-info join-item w-1/2">Empire</button>
+                                                <button className="btn btn-sm btn-error join-item w-1/2">Rebel</button>
+                                            </div>
+                                            <div className="join mt-3 ml-10">
+                                                <button className="btn btn-sm btn-info join-item w-1/2">Separatist</button>
+                                                <button className="btn btn-sm btn-error join-item w-1/2">Republic</button>
+                                            </div>
+                                        </div>
+                                    )
+                                }                                
                             </div>
                         ))
                     }
