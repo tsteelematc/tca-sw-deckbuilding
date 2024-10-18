@@ -102,16 +102,16 @@ export const Setup: React.FC<SetupProps> = ({
                 }
             </button>
             <div 
-                className="card bg-base-100 shadow-xl"
+                className="card bg-base-100 shadow-xl overflow-hidden"
             >
                 <div 
-                    className="card-body"
+                    className="card-body overflow-hidden"
                 >
                     <div 
                         className="join"
                     >
                         <input 
-                            className="input input-bordered join-item" 
+                            className="input input-bordered join-item w-full" 
                             placeholder="Enter new player name"
                             value={newPlayerName} 
                             onChange={(e) => setNewPlayerName(e.target.value)}
@@ -171,32 +171,32 @@ export const Setup: React.FC<SetupProps> = ({
                                             className="flex flex-col"
                                         >
                                             <div 
-                                                className="join mt-3 ml-10"
+                                                className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Empire")}
                                                 >
                                                     Empire
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Rebel")}
                                                 >
                                                     Rebel
                                                 </button>
                                             </div>
                                             <div 
-                                                className="join mt-3 ml-10"
+                                                className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Separatist")}
                                                 >
                                                     Separatist
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2"
+                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Republic")}
                                                 >
                                                     Republic
