@@ -41,7 +41,7 @@ export const Play: React.FC<PlayProps> = ({
                     currentPlayers.map(x => (
                         <button
                             key={x.name}
-                            className="btn btn-outline mb-3 ml-3"
+                            className="btn btn-outline mb-3 ml-3 flex-nowrap overflow-hidden"
                             onClick={() => {
                                 addNewGameResult({
                                     startTime: "",
@@ -52,7 +52,9 @@ export const Play: React.FC<PlayProps> = ({
                                 nav(-2);
                             }}
                         >
-                            <div>
+                            <div
+                                className="text-nowrap"
+                            >
                                 {x.name} Won
                             </div>
                             <div
