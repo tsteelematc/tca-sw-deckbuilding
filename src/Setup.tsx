@@ -177,7 +177,7 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden flex-nowrap"
                                                     onClick={() => setPlayerFaction(x.name, "Empire")}
                                                 >
                                                     <span
@@ -188,7 +188,7 @@ export const Setup: React.FC<SetupProps> = ({
                                                     Empire
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden flex-nowrap"
                                                     onClick={() => setPlayerFaction(x.name, "Rebel")}
                                                 >
                                                     <span
@@ -203,7 +203,7 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden flex-nowrap"
                                                     onClick={() => setPlayerFaction(x.name, "Separatist")}
                                                 >
                                                     <span
@@ -214,7 +214,7 @@ export const Setup: React.FC<SetupProps> = ({
                                                     Separatist
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden flex-nowrap"
                                                     onClick={() => setPlayerFaction(x.name, "Republic")}
                                                 >
                                                     <span
