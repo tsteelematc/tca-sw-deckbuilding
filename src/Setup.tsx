@@ -177,15 +177,25 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Empire")}
                                                 >
+                                                    <span
+                                                        className="text-info"
+                                                    >
+                                                         ●
+                                                    </span>
                                                     Empire
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Rebel")}
                                                 >
+                                                    <span
+                                                        className="text-error"
+                                                    >
+                                                         ●
+                                                    </span>
                                                     Rebel
                                                 </button>
                                             </div>
@@ -193,15 +203,25 @@ export const Setup: React.FC<SetupProps> = ({
                                                 className="join mt-3 ml-10 overflow-hidden"
                                             >
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-info join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Separatist")}
                                                 >
+                                                    <span
+                                                        className="text-info"
+                                                    >
+                                                         ●
+                                                    </span>                                                    
                                                     Separatist
                                                 </button>
                                                 <button 
-                                                    className="btn btn-sm btn-outline btn-error join-item w-1/2 overflow-hidden"
+                                                    className="btn btn-sm btn-outline join-item w-1/2 overflow-hidden"
                                                     onClick={() => setPlayerFaction(x.name, "Republic")}
                                                 >
+                                                    <span
+                                                        className="text-error"
+                                                    >
+                                                         ●
+                                                    </span>                                                    
                                                     Republic
                                                 </button>
                                             </div>
