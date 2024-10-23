@@ -19,46 +19,46 @@ import {
 
 const dummyGameResults: GameResult[] = [
   {
-    startTime: "2024-09-23T15:36:25.123Z"
-    , endTime: "2024-09-23T15:46:25.123Z"
-    , winner: "Chris B"
-    , players: [
-      "Chris B"
-      , "Caden J"
-      , "Peter B"
-      , "Swastik A"
-      , "Tom"
-    ]
+      startTime: "2024-09-23T15:36:25.123Z"
+      , endTime: "2024-09-23T15:46:25.123Z"
+      , winner: "Chris B"
+      , players: [
+          "Chris B"
+          , "Caden J"
+          , "Peter B"
+          , "Swastik A"
+          , "Tom"
+      ]
   }
   , {
-    startTime: "2024-09-23T15:48:25.123Z"
-    , endTime: "2024-09-23T15:50:25.123Z"
-    , winner: "Tom"
-    , players: [
-      "Harry"
-      , "Hermione"
-      , "Ron"
-      , "Tom"
-    ]
+      startTime: "2024-09-23T15:48:25.123Z"
+      , endTime: "2024-09-23T15:50:15.123Z"
+      , winner: "Tom"
+      , players: [
+          "Harry"
+          , "Hermione"
+          , "Ron"
+          , "Tom"
+      ]    
   }
   , {
-    startTime: ""
-    , endTime: ""
-    , winner: "Harry"
-    , players: [
-      "Harry"
-      , "Chris B"
-      , "Tom"
-    ]
+      startTime: "2024-10-20T20:02:47.024Z"
+      , endTime: "2024-10-20T20:07:47.024Z"
+      , winner: "Harry"
+      , players: [
+          "Harry"
+          , "Chris B"
+          , "Tom"
+      ]
   }
   , {
-    startTime: ""
-    , endTime: ""
-    , winner: "Tom"
-    , players: [
-      "Tom"
-      , "Jack"
-    ]
+      startTime: "2024-10-20T20:08:47.024Z"
+      , endTime: "2024-10-20T20:23:37.024Z"
+      , winner: "Tom"
+      , players: [
+          "Tom"
+          , "Jack"
+      ]
   }
 ];
 
