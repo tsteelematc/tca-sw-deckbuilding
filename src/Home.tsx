@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { LeaderboardEntry } from "./game-results";
+import { 
+    LeaderboardEntry
+    , GeneralFactsDisplay 
+} from "./game-results";
 
 interface HomeProps {
     leaderboardData: LeaderboardEntry[];
+    generalFactsData: GeneralFactsDisplay;
 }
 
 export const Home: React.FC<HomeProps> = ({
     leaderboardData
+    , generalFactsData
 }) => {
 
     // Use a react hook for navigation...
@@ -25,6 +30,57 @@ export const Home: React.FC<HomeProps> = ({
             >
                 Play
             </button>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
+                        General Facts
+                    </h2>
+                    <table
+                        className="table"
+                    >
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Total Games
+                                </td>
+                                <th>
+                                    {generalFactsData.totalGames}
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Last Played
+                                </td>
+                                <th>
+                                    {generalFactsData.lastPlayed}
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Shortest Game
+                                </td>
+                                <th>
+                                    {generalFactsData.shortestGame}
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Longest Game
+                                </td>
+                                <th>
+                                    {generalFactsData.longestGame}
+                                </th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             <div
                 className="card bg-base-100 shadow-xl"
             >

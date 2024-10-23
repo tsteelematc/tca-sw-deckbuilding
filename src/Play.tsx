@@ -14,6 +14,8 @@ export const Play: React.FC<PlayProps> = ({
 
     const nav = useNavigate();
 
+    const [startTimeState, setStartTimeState] = useState(new Date().toISOString());
+    
     return (
         <div>
             <h1 className="text-2xl font-bold mb-3">Play</h1>
@@ -44,8 +46,8 @@ export const Play: React.FC<PlayProps> = ({
                             className="btn btn-outline mb-3 ml-3 flex-nowrap overflow-hidden"
                             onClick={() => {
                                 addNewGameResult({
-                                    startTime: "",
-                                    endTime: "",
+                                    startTime: startTimeState,
+                                    endTime: new Date().toISOString(),
                                     winner: x.name,
                                     players: currentPlayers.map(y => y.name),
                                 });
