@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/tca-sw-deckbuilding/static/css/main.c83c5d8d.css",
+    "main.js": "/tca-sw-deckbuilding/static/js/main.bf8422c2.js",
+    "static/js/453.070bf121.chunk.js": "/tca-sw-deckbuilding/static/js/453.070bf121.chunk.js",
+    "index.html": "/tca-sw-deckbuilding/index.html",
+    "main.c83c5d8d.css.map": "/tca-sw-deckbuilding/static/css/main.c83c5d8d.css.map",
+    "main.bf8422c2.js.map": "/tca-sw-deckbuilding/static/js/main.bf8422c2.js.map",
+    "453.070bf121.chunk.js.map": "/tca-sw-deckbuilding/static/js/453.070bf121.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c83c5d8d.css",
+    "static/js/main.bf8422c2.js"
+  ]
+}
