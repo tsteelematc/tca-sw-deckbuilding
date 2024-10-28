@@ -91,6 +91,16 @@ export const Setup: React.FC<SetupProps> = ({
                         availablePlayers
                             .filter(x => x.checked)
                             .map(x => ({
+                                name: x.name 
+                                , faction: x.faction 
+                                , sort: x.faction === "Empire" || x.faction === "Separatist"
+                                    ? 0 
+                                    : 1
+                            }))
+                            .sort(
+                                (a, b) => a.sort - b.sort
+                            )
+                            .map(x => ({
                                 name: x.name
                                 , faction: x.faction
                             })
