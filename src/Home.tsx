@@ -30,7 +30,7 @@ export const Home: React.FC<HomeProps> = ({
     return (
         <div>
             <button
-                className="btn btn-neutral mb-3 w-full"
+                className="btn btn-lg btn-neutral mb-3 w-full"
                 onClick={() => nav("/setup")}
             >
                 Play

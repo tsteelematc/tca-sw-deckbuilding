@@ -86,7 +86,7 @@ export const Setup: React.FC<SetupProps> = ({
     return (
         <div>
             <button
-                className="btn btn-neutral mb-3 w-full overflow-hidden"
+                className="btn btn-lg btn-neutral mb-3 w-full overflow-hidden"
                 disabled={!twoPlayersAndFactionsChosen}
                 onClick={() => {
                     setCurrentPlayers(

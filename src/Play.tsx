@@ -18,7 +18,7 @@ export const Play: React.FC<PlayProps> = ({
         () => setTitle("Play")
         , []
     );    
-    
+
     const nav = useNavigate();
 
     const [startTimeState, setStartTimeState] = useState(new Date().toISOString());
@@ -172,7 +172,7 @@ export const Play: React.FC<PlayProps> = ({
                             currentPlayers.map(x => (
                                 <button
                                     key={x.name}
-                                    className="btn btn-outline mb-3 ml-3 flex-nowrap overflow-hidden"
+                                    className="btn btn-lg btn-outline mb-3 ml-3 flex-nowrap overflow-hidden"
                                     onClick={() => {
                                         addNewGameResult({
                                             startTime: startTimeState,
