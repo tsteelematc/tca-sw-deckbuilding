@@ -18,9 +18,6 @@ export const Play: React.FC<PlayProps> = ({
 
     return (
         <div>
-            <h1 className="text-2xl font-bold mb-3">Play</h1>
-
-
             <div
                 className="card bg-base-100 shadow-xl mb-3"
             >
