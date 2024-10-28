@@ -111,11 +111,23 @@ const App = () => {
   //
   return (
     <div
-      className="App p-3"
+      className="App"
     >
-      <RouterProvider
-        router={myRouter}
-      />
+      <div 
+        className="navbar bg-base-200"
+      >
+        <span 
+          className="text-2xl font-bold">
+            SW Deckbuilding
+        </span>
+      </div>
+      <div 
+        className="p-3"
+      >
+        <RouterProvider
+          router={myRouter}
+        />
+      </div>
     </div>
   );
 }

@@ -19,11 +19,6 @@ export const Home: React.FC<HomeProps> = ({
 
     return (
         <div>
-            <h1
-                className='text-2xl font-bold mb-3'
-            >
-                Home
-            </h1>
             <button
                 className="btn btn-neutral mb-3 w-full"
                 onClick={() => nav("/setup")}

@@ -78,11 +78,6 @@ export const Setup: React.FC<SetupProps> = ({
 
     return (
         <div>
-            <h1
-                className='text-2xl font-bold mb-3'
-            >
-                Setup
-            </h1>
             <button
                 className="btn btn-neutral mb-3 w-full"
                 disabled={!twoPlayersAndFactionsChosen}
