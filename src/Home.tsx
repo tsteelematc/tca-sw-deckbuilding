@@ -4,6 +4,8 @@ import {
     , GeneralFactsDisplay 
 } from "./game-results";
 
+export const AppTitle = "SW Deckbuilding";
+
 interface HomeProps {
     leaderboardData: LeaderboardEntry[];
     generalFactsData: GeneralFactsDisplay;

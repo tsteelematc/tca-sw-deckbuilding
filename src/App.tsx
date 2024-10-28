@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Home } from "./Home";
+import { AppTitle, Home } from "./Home";
 import { Setup } from "./Setup";
 import { Play } from "./Play";
 
@@ -72,6 +72,9 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
   const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
+
+  const [title, setTitle] = useState(AppTitle);
+
   //
   // Other code... Calculated state...
   //
@@ -118,7 +121,7 @@ const App = () => {
       >
         <span 
           className="text-2xl font-bold">
-            SW Deckbuilding
+            { title }
         </span>
       </div>
       <div 
