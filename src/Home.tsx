@@ -9,6 +9,8 @@ interface HomeProps {
     generalFactsData: GeneralFactsDisplay;
 }
 
+export const AppTitle = "SW Deckbuilding";
+
 export const Home: React.FC<HomeProps> = ({
     leaderboardData
     , generalFactsData

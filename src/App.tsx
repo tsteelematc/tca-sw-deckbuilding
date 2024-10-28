@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import { Home } from "./Home";
+import { AppTitle, Home } from "./Home";
 import { Setup } from "./Setup";
 import { Play } from "./Play";
 
@@ -79,6 +79,8 @@ const App = () => {
     ...gameResults 
     , newResult
   ]);
+
+  const [title, setTitle] = useState(AppTitle);
     
   const myRouter = createHashRouter(
     [
@@ -118,7 +120,7 @@ const App = () => {
       >
         <h1 
           className="text-2xl font-bold">
-            SW Deckbuilding
+            { title }
         </h1>
       </div>
       <div className="p-3">
