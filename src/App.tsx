@@ -72,9 +72,6 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
   const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
-
-  const [title, setTitle] = useState(AppTitle);
-
   //
   // Other code... Calculated state...
   //
@@ -82,6 +79,8 @@ const App = () => {
     ...gameResults 
     , newResult
   ]);
+
+  const [title, setTitle] = useState(AppTitle);
     
   const myRouter = createHashRouter(
     [
@@ -120,20 +119,25 @@ const App = () => {
       className="App"
     >
       <div 
-        className="navbar bg-base-200"
+        className="navbar bg-base-200 overflow-hidden"
       >
-        <span 
-          className="text-2xl font-bold">
+        <h1 
+          className="text-2xl font-bold text-nowrap">
             { title }
-        </span>
+        </h1>
+        {
+          title === AppTitle && (
+            <span className="badge badge-xs ml-1 mb-3 p-3 text-nowrap">
+              COMPANION APP
+            </span>
+          )
+        }
       </div>
-      <div 
-        className="p-3"
-      >
+      <div className="p-3">
         <RouterProvider
           router={myRouter}
         />
-      </div>
+      </div>      
     </div>
   );
 }
