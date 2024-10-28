@@ -119,12 +119,19 @@ const App = () => {
       className="App"
     >
       <div 
-        className="navbar bg-base-200"
+        className="navbar bg-base-200 overflow-hidden"
       >
         <h1 
-          className="text-2xl font-bold">
+          className="text-2xl font-bold text-nowrap">
             { title }
         </h1>
+        {
+          title === AppTitle && (
+            <span className="badge badge-xs ml-1 mb-3 p-3 text-nowrap">
+              COMPANION APP
+            </span>
+          )
+        }
       </div>
       <div className="p-3">
         <RouterProvider
