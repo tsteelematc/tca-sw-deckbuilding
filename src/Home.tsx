@@ -3,10 +3,12 @@ import {
     LeaderboardEntry
     , GeneralFactsDisplay 
 } from "./game-results";
+import { useEffect } from "react";
 
 interface HomeProps {
     leaderboardData: LeaderboardEntry[];
     generalFactsData: GeneralFactsDisplay;
+    setTitle: (t: string) => void;
 }
 
 export const AppTitle = "SW Deckbuilding";
@@ -14,8 +16,14 @@ export const AppTitle = "SW Deckbuilding";
 export const Home: React.FC<HomeProps> = ({
     leaderboardData
     , generalFactsData
+    , setTitle
 }) => {
 
+    useEffect(
+        () => setTitle(AppTitle)
+        , []
+    );
+        
     // Use a react hook for navigation...
     const nav = useNavigate();
 

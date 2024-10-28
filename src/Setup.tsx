@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CurrentPlayer, Faction } from "./game-results";
 
 interface SetupProps {
     previousPlayers: string[];
     setCurrentPlayers: (players: CurrentPlayer[]) => void;
+    setTitle: (t: string) => void;
 }
 
 interface AvailablePlayer {
@@ -16,8 +17,14 @@ interface AvailablePlayer {
 export const Setup: React.FC<SetupProps> = ({
     previousPlayers
     , setCurrentPlayers
+    , setTitle
 }) => {
-    
+
+    useEffect(
+        () => setTitle("Setup")
+        , []
+    );
+
     const myNav = useNavigate();
 
     const [availablePlayers, setAvailablePlayers] = useState<AvailablePlayer[]>(
