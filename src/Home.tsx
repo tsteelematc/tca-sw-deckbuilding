@@ -25,7 +25,7 @@ export const Home: React.FC<HomeProps> = ({
                 Home
             </h1>
             <button
-                className="btn btn-primary mb-3"
+                className="btn btn-neutral mb-3 w-full"
                 onClick={() => nav("/setup")}
             >
                 Play
