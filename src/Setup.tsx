@@ -106,7 +106,7 @@ export const Setup: React.FC<SetupProps> = ({
                 }
             </button>
             <div 
-                className="join my-5"
+                className="join my-5 w-full"
             >
                 <input 
                     className="input input-bordered join-item w-full" 
