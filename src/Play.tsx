@@ -81,7 +81,7 @@ export const Play: React.FC<PlayProps> = ({
                                     </div>
                                 </td>
                                 <td>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col sm:w-48 bg-error">
                                         <div className="flex items-center join">
                                             <button
                                                 className="btn btn-xs btn-outline join-item"
