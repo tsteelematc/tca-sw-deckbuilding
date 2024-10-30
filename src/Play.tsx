@@ -179,6 +179,7 @@ export const Play: React.FC<PlayProps> = ({
                                             endTime: new Date().toISOString(),
                                             winner: x.name,
                                             players: currentPlayers.map(y => y.name),
+                                            turns: []
                                         });
                                         nav(-2);
                                     }}
