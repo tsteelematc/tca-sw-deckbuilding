@@ -97,7 +97,9 @@ export const Play: React.FC<PlayProps> = ({
                             onClick={() => setTurns([
                                 ...turns 
                                 , {
-                                    turnNumber: 2 
+                                    turnNumber: turns.length % currentPlayers.length > 0
+                                        ? Math.ceil(turns.length / currentPlayers.length)
+                                        : (turns.length / currentPlayers.length) + 1
                                     , startTime: ""
                                     , endTime: ""
                                     , player: "Foo"
