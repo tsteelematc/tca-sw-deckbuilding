@@ -155,7 +155,7 @@ const App = () => {
         path: "/play",
         element: <Play 
           addNewGameResult={addNewGameResult}
-          currentPlayers={currentPlayers}
+          currentPlayers={[...currentPlayers, {name: "Biggie", faction: "Empire"}]}
           setTitle={setTitle}
         />,
       },
