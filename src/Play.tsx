@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { CurrentPlayer, Faction, GameResult } from "./game-results";
+import { CurrentPlayer, Faction, GameResult, Turn } from "./game-results";
 import { useEffect, useState } from "react";
 
 interface PlayProps {
@@ -23,6 +23,23 @@ export const Play: React.FC<PlayProps> = ({
 
     const [startTimeState, setStartTimeState] = useState(new Date().toISOString());
 
+    const [turns, setTurns] = useState<Turn[]>([
+        {
+            turnNumber: 1 
+            , player: currentPlayers[0].name
+            , startTime: ""
+            , endTime: ""
+            , didTheThing: false
+        }
+        , {
+            turnNumber: 1 
+            , player: currentPlayers[1].name
+            , startTime: ""
+            , endTime: ""
+            , didTheThing: false
+        }
+    ]);
+
     return (
         <div>
             <div
@@ -42,7 +59,7 @@ export const Play: React.FC<PlayProps> = ({
                         <thead>
                             <tr>
                                 <th>
-                                    #
+                                    Turn #
                                 </th>
                                 <th>
                                     Player
@@ -53,13 +70,44 @@ export const Play: React.FC<PlayProps> = ({
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Tom</td>
-                                <td>No</td>
-                            </tr>
+                            {
+                                turns.map(x => (
+                                    <tr>
+                                        <td>{x.turnNumber}</td>
+                                        <td>{x.player}</td>
+                                        <td>{x.didTheThing ? "Yes" : "No"}</td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
+                    <div 
+                        className="join"
+                    >
+                        <button
+                            className="join-item btn btn-outline btn-sm"
+                            disabled={turns.length <= 1}
+                            onClick={() => setTurns(turns.slice(0, -1))}
+                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            className="join-item btn btn-outline btn-sm"
+                            onClick={() => setTurns([
+                                ...turns 
+                                , {
+                                    turnNumber: 2 
+                                    , startTime: ""
+                                    , endTime: ""
+                                    , player: "Foo"
+                                    , didTheThing: false
+                                }
+                            ])}
+                        >
+                            Next &gt;
+                        </button>
+                    </div>
                 </div>
             </div>
 
