@@ -34,119 +34,29 @@ export const Play: React.FC<PlayProps> = ({
                     <h2
                         className="card-title text-sm"
                     >
-                        Enter starships and bases destroyed each turn...
+                        Enter turn info as you play...
                     </h2>
                     <table
                         className="table"
                     >
-                        <thead
-                            className="text-lg"
-                        >
+                        <thead>
                             <tr>
                                 <th>
-                                    Turn
+                                    #
                                 </th>
-                                {
-                                    currentPlayers.map(x => (
-                                        <th
-                                            key={x.name}
-                                            className="text-center"
-                                        >
-                                            {x.name}
-                                        </th>
-                                    ))
-                                }
+                                <th>
+                                    Player
+                                </th>
+                                <th>
+                                    Did the thing?
+                                </th>
                             </tr>
                         </thead>
-                        <tbody
-                            className="text-3xl"
-                        >
+                        <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>
-                                    <div className="flex flex-col text-center">
-                                        <p>0</p>
-                                        <p>0</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="flex flex-col text-center">
-                                        <p>0</p>
-                                        <p>0</p>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>
-                                    <div className="flex flex-col text-center">
-                                        <p>0</p>
-                                        <p>0</p>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="flex flex-col sm:w-48 bg-error">
-                                        <div className="flex items-center join">
-                                            <button
-                                                className="btn btn-xs btn-outline join-item"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
-                                                    <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-                                                </svg>
-                                            </button>
-                                            <p
-                                                className="text-xl join-item text-center"
-                                            >0</p>
-                                            <button
-                                                className="btn btn-xs btn-outline join-item"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
-                                                    <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div className="flex items-center gap-3 mt-3 join">
-                                            <button
-                                                className="btn btn-xs btn-outline join-item"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
-                                                    <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
-                                                </svg>
-                                            </button>
-                                            <p
-                                                className="text-xl join-item text-center"
-                                            >0</p>
-                                            <button
-                                                className="btn btn-xs btn-outline join-item"
-                                            >
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
-                                                    <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                        <div className="flex join mt-3">
-                                            <button className="btn btn-outline btn-sm join-item">
-                                                &lt;
-                                            </button>
-                                            <button className="btn btn-outline btn-sm join-item grow">
-                                                Next &gt;
-                                            </button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr
-                                className="text-lg text-neutral-content text-center"
-                            >
-                                <th>
-                                    Totals
-                                </th>
-                                <th>
-                                    0 <br /> 0
-                                </th>
-                                <th>
-                                    0 <br /> 0
-                                </th>
+                                <td>Tom</td>
+                                <td>No</td>
                             </tr>
                         </tbody>
                     </table>
