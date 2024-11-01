@@ -102,7 +102,9 @@ export const Play: React.FC<PlayProps> = ({
                                         : (turns.length / currentPlayers.length) + 1
                                     , startTime: ""
                                     , endTime: ""
-                                    , player: "Foo"
+                                    , player: currentPlayers[
+                                        turns.length % currentPlayers.length
+                                    ].name
                                     , didTheThing: false
                                 }
                             ])}
