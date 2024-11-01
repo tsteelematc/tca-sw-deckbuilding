@@ -71,11 +71,37 @@ export const Play: React.FC<PlayProps> = ({
                         </thead>
                         <tbody>
                             {
-                                turns.map(x => (
-                                    <tr>
+                                turns.map((x, i) => (
+                                    <tr
+                                        key={`${x.turnNumber}~${x.player}`}
+                                    >
                                         <td>{x.turnNumber}</td>
                                         <td>{x.player}</td>
-                                        <td>{x.didTheThing ? "Yes" : "No"}</td>
+                                        <td>
+                                            {
+                                                turns.length - 1 === i
+                                                    ? (
+                                                        <label 
+                                                            className="cursor-pointer flex mt-3"
+                                                        >
+                                                            <input 
+                                                                type="checkbox" 
+                                                                className="checkbox" 
+                                                                checked={x.didTheThing}
+                                                                // onChange={() => setAvailablePlayers(
+                                                                //     availablePlayers.map(y =>({
+                                                                //         ...y 
+                                                                //         , checked: y.name === x.name 
+                                                                //             ? !y.checked 
+                                                                //             : y.checked
+                                                                //     }))
+                                                                // )}
+                                                            />
+                                                        </label>
+                                                    )
+                                                    : x.didTheThing ? "Yes" : "No"
+                                            }
+                                        </td>
                                     </tr>
                                 ))
                             }
@@ -105,7 +131,7 @@ export const Play: React.FC<PlayProps> = ({
                                     , player: currentPlayers[
                                         turns.length % currentPlayers.length
                                     ].name
-                                    , didTheThing: false
+                                    , didTheThing: true
                                 }
                             ])}
                         >
