@@ -57,7 +57,9 @@ export const Play: React.FC<PlayProps> = ({
                         className="table"
                     >
                         <thead>
-                            <tr>
+                            <tr
+                                className="text-center"
+                            >
                                 <th>
                                     Turn #
                                 </th>
@@ -73,31 +75,30 @@ export const Play: React.FC<PlayProps> = ({
                             {
                                 turns.map((x, i) => (
                                     <tr
+                                        className="text-center"
                                         key={`${x.turnNumber}~${x.player}`}
                                     >
                                         <td>{x.turnNumber}</td>
                                         <td>{x.player}</td>
-                                        <td>
+                                        <td
+                                            className="text-center"
+                                        >
                                             {
                                                 turns.length - 1 === i
                                                     ? (
-                                                        <label 
-                                                            className="cursor-pointer flex"
-                                                        >
-                                                            <input 
-                                                                type="checkbox" 
-                                                                className="checkbox" 
-                                                                checked={x.didTheThing}
-                                                                onChange={() => setTurns(
-                                                                    turns.map((y, i) =>({
-                                                                        ...y 
-                                                                        , didTheThing: turns.length - 1 === i
-                                                                            ? !y.didTheThing 
-                                                                            : y.didTheThing
-                                                                    }))
-                                                                )}
-                                                            />
-                                                        </label>
+                                                        <input 
+                                                            type="checkbox" 
+                                                            className="checkbox" 
+                                                            checked={x.didTheThing}
+                                                            onChange={() => setTurns(
+                                                                turns.map((y, i) =>({
+                                                                    ...y 
+                                                                    , didTheThing: turns.length - 1 === i
+                                                                        ? !y.didTheThing 
+                                                                        : y.didTheThing
+                                                                }))
+                                                            )}
+                                                        />
                                                     )
                                                     : x.didTheThing ? "Yes" : "No"
                                             }
@@ -105,39 +106,47 @@ export const Play: React.FC<PlayProps> = ({
                                     </tr>
                                 ))
                             }
+                            <tr
+                                className="text-center"
+                            >
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <div 
+                                        className="join"
+                                    >
+                                        <button
+                                            className="join-item btn btn-outline btn-sm"
+                                            disabled={turns.length <= 1}
+                                            onClick={() => setTurns(turns.slice(0, -1))}
+                                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
+                                        >
+                                            &lt;
+                                        </button>
+                                        <button
+                                            className="join-item btn btn-outline btn-sm"
+                                            onClick={() => setTurns([
+                                                ...turns 
+                                                , {
+                                                    turnNumber: turns.length % currentPlayers.length > 0
+                                                        ? Math.ceil(turns.length / currentPlayers.length)
+                                                        : (turns.length / currentPlayers.length) + 1
+                                                    , startTime: ""
+                                                    , endTime: ""
+                                                    , player: currentPlayers[
+                                                        turns.length % currentPlayers.length
+                                                    ].name
+                                                    , didTheThing: false
+                                                }
+                                            ])}
+                                        >
+                                            Next &gt;
+                                        </button>
+                                    </div>                                    
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
-                    <div 
-                        className="join"
-                    >
-                        <button
-                            className="join-item btn btn-outline btn-sm"
-                            disabled={turns.length <= 1}
-                            onClick={() => setTurns(turns.slice(0, -1))}
-                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
-                        >
-                            &lt;
-                        </button>
-                        <button
-                            className="join-item btn btn-outline btn-sm"
-                            onClick={() => setTurns([
-                                ...turns 
-                                , {
-                                    turnNumber: turns.length % currentPlayers.length > 0
-                                        ? Math.ceil(turns.length / currentPlayers.length)
-                                        : (turns.length / currentPlayers.length) + 1
-                                    , startTime: ""
-                                    , endTime: ""
-                                    , player: currentPlayers[
-                                        turns.length % currentPlayers.length
-                                    ].name
-                                    , didTheThing: false
-                                }
-                            ])}
-                        >
-                            Next &gt;
-                        </button>
-                    </div>
                 </div>
             </div>
 
