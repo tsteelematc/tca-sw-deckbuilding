@@ -57,16 +57,16 @@ export const Play: React.FC<PlayProps> = ({
                         className="table"
                     >
                         <thead>
-                            <tr
-                                className="text-center"
-                            >
+                            <tr>
                                 <th>
                                     Turn #
                                 </th>
                                 <th>
                                     Player
                                 </th>
-                                <th>
+                                <th
+                                    className="text-center"
+                                >
                                     Did the thing?
                                 </th>
                             </tr>
@@ -75,7 +75,6 @@ export const Play: React.FC<PlayProps> = ({
                             {
                                 turns.map((x, i) => (
                                     <tr
-                                        className="text-center"
                                         key={`${x.turnNumber}~${x.player}`}
                                     >
                                         <td>{x.turnNumber}</td>
@@ -106,12 +105,12 @@ export const Play: React.FC<PlayProps> = ({
                                     </tr>
                                 ))
                             }
-                            <tr
-                                className="text-center"
-                            >
+                            <tr>
                                 <td></td>
                                 <td></td>
-                                <td>
+                                <td
+                                    className="text-center"
+                                >
                                     <div 
                                         className="join"
                                     >
