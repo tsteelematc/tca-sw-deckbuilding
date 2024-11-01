@@ -82,7 +82,7 @@ export const Play: React.FC<PlayProps> = ({
                                                 turns.length - 1 === i
                                                     ? (
                                                         <label 
-                                                            className="cursor-pointer flex mt-3"
+                                                            className="cursor-pointer flex"
                                                         >
                                                             <input 
                                                                 type="checkbox" 
