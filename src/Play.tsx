@@ -88,14 +88,14 @@ export const Play: React.FC<PlayProps> = ({
                                                                 type="checkbox" 
                                                                 className="checkbox" 
                                                                 checked={x.didTheThing}
-                                                                // onChange={() => setAvailablePlayers(
-                                                                //     availablePlayers.map(y =>({
-                                                                //         ...y 
-                                                                //         , checked: y.name === x.name 
-                                                                //             ? !y.checked 
-                                                                //             : y.checked
-                                                                //     }))
-                                                                // )}
+                                                                onChange={() => setTurns(
+                                                                    turns.map((y, i) =>({
+                                                                        ...y 
+                                                                        , didTheThing: turns.length - 1 === i
+                                                                            ? !y.didTheThing 
+                                                                            : y.didTheThing
+                                                                    }))
+                                                                )}
                                                             />
                                                         </label>
                                                     )
@@ -131,7 +131,7 @@ export const Play: React.FC<PlayProps> = ({
                                     , player: currentPlayers[
                                         turns.length % currentPlayers.length
                                     ].name
-                                    , didTheThing: true
+                                    , didTheThing: false
                                 }
                             ])}
                         >
