@@ -21,6 +21,7 @@ export const Home: React.FC<HomeProps> = ({
     leaderboardData
     , generalFactsData
     , setTitle
+    , avgThingsPerWin
 }) => {
 
     useEffect(
