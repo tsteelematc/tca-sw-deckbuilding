@@ -27,15 +27,6 @@ export const Play: React.FC<PlayProps> = ({
         {
             turnNumber: 1 
             , player: currentPlayers[0].name
-            , startTime: ""
-            , endTime: ""
-            , didTheThing: false
-        }
-        , {
-            turnNumber: 1 
-            , player: currentPlayers[1].name
-            , startTime: ""
-            , endTime: ""
             , didTheThing: false
         }
     ]);
@@ -130,8 +121,6 @@ export const Play: React.FC<PlayProps> = ({
                                                     turnNumber: turns.length % currentPlayers.length > 0
                                                         ? Math.ceil(turns.length / currentPlayers.length)
                                                         : (turns.length / currentPlayers.length) + 1
-                                                    , startTime: ""
-                                                    , endTime: ""
                                                     , player: currentPlayers[
                                                         turns.length % currentPlayers.length
                                                     ].name
@@ -175,7 +164,7 @@ export const Play: React.FC<PlayProps> = ({
                                             endTime: new Date().toISOString(),
                                             winner: x.name,
                                             players: currentPlayers.map(y => y.name),
-                                            turns: []
+                                            turns: turns
                                         });
                                         nav(-2);
                                     }}

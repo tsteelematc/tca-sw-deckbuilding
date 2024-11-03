@@ -10,11 +10,11 @@ const formatLastPlayed = durationFormatter<string>({
 // Type definitions...
 //
 export type Turn = {
-    turnNumber: number; // ? ? ? or order in turns array, mod 2, mod # players, if not saved : - (
+    turnNumber: number;
     player: string;
-    startTime: string;
-    endTime: string;
-    didTheThing: boolean; // For example, destroyed a base for SW Deckbuilding ! ! !
+    // startTime: string;
+    // endTime: string;
+    didTheThing: boolean;
 };
 
 export type GameResult = {

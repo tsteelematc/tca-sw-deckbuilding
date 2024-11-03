@@ -31,51 +31,39 @@ const dummyGameResults: GameResult[] = [
           {
               turnNumber: 1
               , player: "Tom"
-              , startTime: ""
-              , endTime: ""
-              , didTheThing: false // true and up again ! ! !
+              , didTheThing: false
           }
           , {
               turnNumber: 1
               , player: "Jack"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: false
           }
           , {
               turnNumber: 2
               , player: "Tom"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: true
           }
           , {
               turnNumber: 2
               , player: "Jack"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: false
           }
           , {
               turnNumber: 3
               , player: "Tom"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: true
           }
           , {
               turnNumber: 3
               , player: "Jack"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: false
           }
       ]
   }
   , {
-      startTime: "2024-10-20T20:25:47.024Z"
-      , endTime: "2024-10-20T20:35:37.024Z"
-      , winner: "Tom"
+      startTime: "2024-10-20T20:27:47.024Z"
+      , endTime: "2024-10-20T20:33:37.024Z"
+      , winner: "Jack"
       , players: [
           "Tom"
           , "Jack"
@@ -84,31 +72,23 @@ const dummyGameResults: GameResult[] = [
           {
               turnNumber: 1
               , player: "Tom"
-              , startTime: ""
-              , endTime: ""
-              , didTheThing: false // true and see avg go up
+              , didTheThing: false
           }
           , {
               turnNumber: 1
               , player: "Jack"
-              , startTime: ""
-              , endTime: ""
-              , didTheThing: false // true and see avg not change
+              , didTheThing: true
           }
           , {
               turnNumber: 2
               , player: "Tom"
-              , startTime: ""
-              , endTime: ""
               , didTheThing: true
           }
           , {
               turnNumber: 2
               , player: "Jack"
-              , startTime: ""
-              , endTime: ""
-              , didTheThing: false
-          }            
+              , didTheThing: true
+          }
       ]
   }
 ];
@@ -155,7 +135,7 @@ const App = () => {
         path: "/play",
         element: <Play 
           addNewGameResult={addNewGameResult}
-          currentPlayers={[...currentPlayers, {name: "Biggie", faction: "Empire"}]}
+          currentPlayers={currentPlayers}
           setTitle={setTitle}
         />,
       },
