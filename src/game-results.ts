@@ -129,6 +129,25 @@ export const getGeneralFacts = (results: GameResult[]): GeneralFactsDisplay => {
     };
 };
 
+export const getAvgThingsPerWin = (results: GameResult[]) => {
+
+    const thingsDoneByWinnerCounts = results.map(
+        x => x.turns.filter(
+            y => y.player === x.winner && y.didTheThing
+        ).length
+    );
+
+    // console.log(thingsDoneByWinnerCounts);
+
+    return thingsDoneByWinnerCounts.length > 0 
+        ? thingsDoneByWinnerCounts.reduce(
+            (acc, x) => acc + x
+            , 0
+        ) / thingsDoneByWinnerCounts.length
+        : 0
+    ;
+};
+
 //
 // Helper funcs...
 //
