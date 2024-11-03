@@ -14,6 +14,7 @@ interface HomeProps {
     leaderboardData: LeaderboardEntry[];
     generalFactsData: GeneralFactsDisplay;
     setTitle: (t: string) => void;
+    avgThingsPerWin: number;
 }
 
 export const Home: React.FC<HomeProps> = ({
