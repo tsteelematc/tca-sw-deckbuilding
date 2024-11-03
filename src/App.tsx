@@ -123,6 +123,7 @@ const App = () => {
           generalFactsData={getGeneralFacts(gameResults)} 
           setTitle={setTitle}
           avgThingsPerWin={getAvgThingsPerWin(gameResults)}
+          avgTurnsPerGame={0}
         />,
       },
       {
