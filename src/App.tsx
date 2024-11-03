@@ -122,7 +122,7 @@ const App = () => {
           leaderboardData={getLeaderboard(gameResults)}
           generalFactsData={getGeneralFacts(gameResults)} 
           setTitle={setTitle}
-          avgThingsPerWin={0}
+          avgThingsPerWin={getAvgThingsPerWin(gameResults)}
         />,
       },
       {
