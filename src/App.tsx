@@ -16,6 +16,7 @@ import {
   , getLeaderboard
   , getPreviousPlayers
   , getGeneralFacts
+  , getAvgThingsPerWin
 } from "./game-results";
 
 const dummyGameResults: GameResult[] = [
