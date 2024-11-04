@@ -15,6 +15,7 @@ interface HomeProps {
     generalFactsData: GeneralFactsDisplay;
     setTitle: (t: string) => void;
     avgThingsPerWin: number;
+    avgTurnsPerGame: number;
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -22,7 +23,10 @@ export const Home: React.FC<HomeProps> = ({
     , generalFactsData
     , setTitle
     , avgThingsPerWin
+    , avgTurnsPerGame
 }) => {
+
+    console.log(avgTurnsPerGame);
 
     useEffect(
         () => setTitle(AppTitle)
@@ -155,6 +159,16 @@ export const Home: React.FC<HomeProps> = ({
                     </h2>
                     <h1 className="text-5xl font-bold">
                         {avgThingsPerWin.toFixed(2)}
+                    </h1>
+                </div>
+            </div>
+            <div className="card card bg-base-100 shadow-xl mb-3">
+                <div className="card-body p-3 overflow-x-hidden">
+                    <h2 className="card-title">
+                        Avg Turns Per Game
+                    </h2>
+                    <h1 className="text-5xl font-bold">
+                        {avgTurnsPerGame.toFixed(2)}
                     </h1>
                 </div>
             </div>
