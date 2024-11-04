@@ -102,6 +102,51 @@ export const Play: React.FC<PlayProps> = ({
                                 <td
                                     className="text-center"
                                 >
+
+
+                                    <div className="flex flex-col w-36 hidden">
+                                        <div className="flex items-center join">
+                                            <button
+                                                className="btn btn-xs btn-outline join-item"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                    <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                            <p
+                                                className="text-xl join-item text-center"
+                                            >0</p>
+                                            <button
+                                                className="btn btn-xs btn-outline join-item"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                    <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div className="flex items-center gap-3 mt-3 join">
+                                            <button
+                                                className="btn btn-xs btn-outline join-item"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                    <path fillRule="evenodd" d="M4.25 12a.75.75 0 0 1 .75-.75h14a.75.75 0 0 1 0 1.5H5a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                            <p
+                                                className="text-xl join-item text-center"
+                                            >0</p>
+                                            <button
+                                                className="btn btn-xs btn-outline join-item"
+                                            >
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                    <path fillRule="evenodd" d="M12 3.75a.75.75 0 0 1 .75.75v6.75h6.75a.75.75 0 0 1 0 1.5h-6.75v6.75a.75.75 0 0 1-1.5 0v-6.75H4.5a.75.75 0 0 1 0-1.5h6.75V4.5a.75.75 0 0 1 .75-.75Z" clipRule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+
+
                                     <div 
                                         className="join"
                                     >
