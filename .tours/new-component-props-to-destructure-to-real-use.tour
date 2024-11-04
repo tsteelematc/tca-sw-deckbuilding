@@ -1,0 +1,32 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "New component props to destructure to real use...",
+  "steps": [
+    {
+      "file": "src/Home.tsx",
+      "description": "Here's where we add the prop to our props interface...",
+      "line": 18
+    },
+    {
+      "file": "src/App.tsx",
+      "description": "Once the prop has been added to the interface, we have to get rid of errors in App.tsx, by passing that prop to the component... Often just pass dummy data such as 0....",
+      "line": 127
+    },
+    {
+      "file": "src/Home.tsx",
+      "description": "Then we destructure the prop so that we can use it within our component... Remember, React props are a single object passed to our component function, so we destructure individual object properties for use...",
+      "line": 26
+    },
+    {
+      "file": "src/Home.tsx",
+      "description": "Here's one use, just to see it working... But we should remove extraneous console.log() messages : - O",
+      "line": 29
+    },
+    {
+      "file": "src/Home.tsx",
+      "description": "Finally here is the real use... Putting that property value in a card ! ! !",
+      "line": 171
+    }
+  ],
+  "ref": "week-11-mob-programming"
+}
