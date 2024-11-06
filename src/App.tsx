@@ -160,13 +160,6 @@ const App = () => {
           className="text-2xl font-bold text-nowrap">
             { title }
         </h1>
-        {
-          title === AppTitle && (
-            <span className="badge badge-xs ml-1 mb-3 p-3 text-nowrap">
-              COMPANION APP
-            </span>
-          )
-        }
       </div>
       <div className="p-3">
         <RouterProvider
