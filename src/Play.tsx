@@ -42,10 +42,10 @@ export const Play: React.FC<PlayProps> = ({
                     <h2
                         className="card-title text-sm"
                     >
-                        Enter turn info as you play...
+                        Enter turn info after taking your turn...
                     </h2>
                     <table
-                        className="table"
+                        className="table table-auto"
                     >
                         <thead>
                             <tr>
@@ -53,12 +53,7 @@ export const Play: React.FC<PlayProps> = ({
                                     Turn #
                                 </th>
                                 <th>
-                                    Player
-                                </th>
-                                <th
-                                    className="text-center"
-                                >
-                                    Did the thing?
+                                    Turn Info
                                 </th>
                             </tr>
                         </thead>
@@ -68,30 +63,40 @@ export const Play: React.FC<PlayProps> = ({
                                     <tr
                                         key={`${x.turnNumber}~${x.player}`}
                                     >
-                                        <td>{x.turnNumber}</td>
-                                        <td>{x.player}</td>
                                         <td
-                                            className="text-center"
+                                        className="align-top"
                                         >
-                                            {
-                                                turns.length - 1 === i
-                                                    ? (
-                                                        <input 
-                                                            type="checkbox" 
-                                                            className="checkbox" 
-                                                            checked={x.didTheThing}
-                                                            onChange={() => setTurns(
-                                                                turns.map((y, i) =>({
-                                                                    ...y 
-                                                                    , didTheThing: turns.length - 1 === i
-                                                                        ? !y.didTheThing 
-                                                                        : y.didTheThing
-                                                                }))
-                                                            )}
-                                                        />
-                                                    )
-                                                    : x.didTheThing ? "Yes" : "No"
-                                            }
+                                            {x.turnNumber}
+                                        </td>
+                                        <td
+                                            className="text-center123"
+                                        >
+                                            <div
+                                                className="flex flex-col gap-3"
+                                            >
+                                                <h3 className="text-md font-bold">
+                                                    {x.player}
+                                                </h3>
+                                                {
+                                                    turns.length - 1 === i
+                                                        ? (
+                                                            <input 
+                                                                type="checkbox" 
+                                                                className="checkbox" 
+                                                                checked={x.didTheThing}
+                                                                onChange={() => setTurns(
+                                                                    turns.map((y, i) =>({
+                                                                        ...y 
+                                                                        , didTheThing: turns.length - 1 === i
+                                                                            ? !y.didTheThing 
+                                                                            : y.didTheThing
+                                                                    }))
+                                                                )}
+                                                            />
+                                                        )
+                                                        : x.didTheThing ? "1" : "0"
+                                                }
+                                            </div>
                                         </td>
                                     </tr>
                                 ))
@@ -131,6 +136,31 @@ export const Play: React.FC<PlayProps> = ({
                                             Next &gt;
                                         </button>
                                     </div>                                    
+                                </td>
+                            </tr>
+                            <tr
+                                className="font-bold"
+                            >
+                                <td
+                                    className="align-top"
+                                >
+                                    Totals
+                                </td>
+                                <td
+                                    className="ml-auto bg-error"
+                                >
+                                    {
+                                        currentPlayers.map(x =>(
+                                            <div>
+                                                <div>
+                                                    {x.name}
+                                                </div>
+                                                <div>
+                                                    0 / 0 / 0 (bases / starships / bounties)    
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
                                 </td>
                             </tr>
                         </tbody>
