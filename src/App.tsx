@@ -185,7 +185,7 @@ const App = () => {
           </svg>
         </label>
       </div>
-      <div className="p-3">
+      <div className="p-3 min-h-screen">
         <RouterProvider
           router={myRouter}
         />
