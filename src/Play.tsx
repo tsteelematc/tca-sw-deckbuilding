@@ -80,19 +80,22 @@ export const Play: React.FC<PlayProps> = ({
                                                 {
                                                     turns.length - 1 === i
                                                         ? (
-                                                            <input 
-                                                                type="checkbox" 
-                                                                className="checkbox" 
-                                                                checked={x.didTheThing}
-                                                                onChange={() => setTurns(
-                                                                    turns.map((y, i) =>({
-                                                                        ...y 
-                                                                        , didTheThing: turns.length - 1 === i
-                                                                            ? !y.didTheThing 
-                                                                            : y.didTheThing
-                                                                    }))
-                                                                )}
-                                                            />
+                                                            <label>
+                                                                <input 
+                                                                    type="checkbox" 
+                                                                    className="checkbox" 
+                                                                    checked={x.didTheThing}
+                                                                    onChange={() => setTurns(
+                                                                        turns.map((y, i) =>({
+                                                                            ...y 
+                                                                            , didTheThing: turns.length - 1 === i
+                                                                                ? !y.didTheThing 
+                                                                                : y.didTheThing
+                                                                        }))
+                                                                    )}
+                                                                />
+                                                                Detroyed a base                                                                
+                                                            </label>
                                                         )
                                                         : x.didTheThing ? "1" : "0"
                                                 }
