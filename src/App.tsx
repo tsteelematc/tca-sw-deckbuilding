@@ -145,7 +145,6 @@ const App = () => {
       },
     ]
   );
-  
   //
   // Return the JSX...
   //
@@ -155,7 +154,7 @@ const App = () => {
       data-theme={darkMode ? "dark" : "light"}
     >
       <div 
-        className="navbar bg-base-200 overflow-hidden flex flex-row"
+        className="navbar bg-base-200 overflow-hidden flex"
       >
         <h1 
           className="text-2xl font-bold text-nowrap">
