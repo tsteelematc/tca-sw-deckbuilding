@@ -74,7 +74,7 @@ export const Play: React.FC<PlayProps> = ({
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <span className="join-item text-xl mx-5 w-3">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
@@ -83,7 +83,7 @@ export const Play: React.FC<PlayProps> = ({
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <span className="join-item text-xl mx-5 w-3">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
@@ -92,7 +92,7 @@ export const Play: React.FC<PlayProps> = ({
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <span className="join-item text-xl mx-5 w-3">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
