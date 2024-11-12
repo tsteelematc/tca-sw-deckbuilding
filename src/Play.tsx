@@ -14,6 +14,10 @@ export const Play: React.FC<PlayProps> = ({
     , setTitle
 }) => {
 
+    //
+    // React hooks...
+    //
+
     useEffect(
         () => setTitle("Play")
         , []
@@ -32,6 +36,40 @@ export const Play: React.FC<PlayProps> = ({
             , basesDestroyedCount: 0
         }
     ]);
+
+    //
+    // Calculated state...
+    //
+
+    const playersWithDestroyedBaseTotals = currentPlayers.map(x => ({
+        name: x.name
+        , destroyedBaseTotal: turns 
+            .filter(
+                y => y.player === x.name
+            )
+            .map(
+                y => y.basesDestroyedCount
+            )
+            .reduce(
+                (acc, y) => acc + y
+                , 0
+            )
+    }));
+
+    // Blank if tied, only allow a "winning" player button to be pressed
+    // if the player is winning ! ! ! i-o-g : - )
+    //
+    // Ugly index hard coded assumption : - (
+    const leadingPlayer = playersWithDestroyedBaseTotals[0].destroyedBaseTotal > playersWithDestroyedBaseTotals[1].destroyedBaseTotal
+        ? playersWithDestroyedBaseTotals[0].name
+        : playersWithDestroyedBaseTotals[1].destroyedBaseTotal > playersWithDestroyedBaseTotals[0].destroyedBaseTotal
+            ? playersWithDestroyedBaseTotals[1].name
+            : ""
+    ;
+
+    //
+    // Helper functions...
+    //
 
     const updateSabotageOrBountyItemCount = (
         player: string
@@ -378,8 +416,14 @@ export const Play: React.FC<PlayProps> = ({
                             currentPlayers.map(x => (
                                 <button
                                     key={x.name}
-                                    className={`btn btn-lg btn-neutral mb-3 ml-3 flex-nowrap overflow-hidden`}
+                                    className={`btn btn-lg ${x.name === leadingPlayer ? "btn-neutral" : "btn-outline"} mb-3 ml-3 flex-nowrap overflow-hidden`}
                                     onClick={() => {
+
+                                        if (x.name !== leadingPlayer) {
+                                            // Do nothing... Maybe obvious to user that player is behind ? ? ?
+                                            return;
+                                        }
+
                                         addNewGameResult({
                                             startTime: startTimeState,
                                             endTime: new Date().toISOString(),
