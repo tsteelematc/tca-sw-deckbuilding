@@ -74,29 +74,29 @@ export const Play: React.FC<PlayProps> = ({
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl mx-5 w-3">0</span>
+                                                                <span className="join-item text-xl w-8 text-center">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-md text-nowrap">Sabotage/Bounty items</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">Sabotage/bounty items</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl mx-5 w-3">0</span>
+                                                                <span className="join-item text-xl w-8 text-center">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-md text-nowrap">Starship(s) destroyed</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">Starship(s) destroyed</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
                                                                 <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl mx-5 w-3">0</span>
+                                                                <span className="join-item text-xl w-8 text-center">0</span>
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-md text-nowrap">Base destroyed (1 max)</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">Base destroyed (1 max)</span>
                                                         </div>
                                                         {/* <label
                                                             className="flex gap-3"
