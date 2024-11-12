@@ -33,6 +33,48 @@ export const Play: React.FC<PlayProps> = ({
         }
     ]);
 
+    const updateSabotageOrBountItemCount = (
+        player: string
+        , turnNumber: number
+        , delta: number) => setTurns(
+            turns.map(
+                x => ({
+                    ...x
+                    , sabotageOrBountyItemCount: player === x.player && turnNumber === x.turnNumber
+                        ? x.sabotageOrBountyItemCount + delta 
+                        : x.sabotageOrBountyItemCount
+                })
+            )
+    );
+
+    const updateStarshipsDestroyedCount = (
+        player: string
+        , turnNumber: number
+        , delta: number) => setTurns(
+            turns.map(
+                x => ({
+                    ...x
+                    , starshipsDestroyedCount: player === x.player && turnNumber === x.turnNumber
+                        ? x.starshipsDestroyedCount + delta 
+                        : x.starshipsDestroyedCount
+                })
+            )
+    );
+
+    const updateBasesDestroyedCount = (
+        player: string
+        , turnNumber: number
+        , delta: number) => setTurns(
+            turns.map(
+                x => ({
+                    ...x
+                    , basesDestroyedCount: player === x.player && turnNumber === x.turnNumber
+                        ? x.basesDestroyedCount + delta 
+                        : x.basesDestroyedCount
+                })
+            )
+    );
+
     return (
         <div>
             <div
@@ -75,27 +117,95 @@ export const Play: React.FC<PlayProps> = ({
                                                     >
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
-                                                                <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl w-8 text-center">0</span>
-                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                                <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateSabotageOrBountItemCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , -1
+                                                                    )}
+                                                                >
+                                                                    -
+                                                                </button>
+                                                                <span 
+                                                                    className="join-item text-xl w-8 text-center"
+                                                                >
+                                                                    {x.sabotageOrBountyItemCount}
+                                                                </span>
+                                                                <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateSabotageOrBountItemCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , +1
+                                                                    )}
+                                                                >
+                                                                    +
+                                                                </button>
                                                             </div>
                                                             <span
                                                                 className="ml-1 mt-1 text-sm text-nowrap">Sabotage/bounty items</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
-                                                                <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl w-8 text-center">0</span>
-                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                            <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateStarshipsDestroyedCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , -1
+                                                                    )}
+                                                                >
+                                                                    -
+                                                                </button>
+                                                                <span 
+                                                                    className="join-item text-xl w-8 text-center"
+                                                                >
+                                                                    {x.starshipsDestroyedCount}
+                                                                </span>
+                                                                <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateStarshipsDestroyedCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , +1
+                                                                    )}
+                                                                >
+                                                                    +
+                                                                </button>
+
                                                             </div>
                                                             <span
                                                                 className="ml-1 mt-1 text-sm text-nowrap">Starship(s) destroyed</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
-                                                                <button className="btn btn-sm btn-outline join-item">-</button>
-                                                                <span className="join-item text-xl w-8 text-center">0</span>
-                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                            <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateBasesDestroyedCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , -1
+                                                                    )}
+                                                                >
+                                                                    -
+                                                                </button>
+                                                                <span 
+                                                                    className="join-item text-xl w-8 text-center"
+                                                                >
+                                                                    {x.basesDestroyedCount}
+                                                                </span>
+                                                                <button 
+                                                                    className="btn btn-sm btn-outline join-item"
+                                                                    onClick={() => updateBasesDestroyedCount(
+                                                                        x.player
+                                                                        , x.turnNumber
+                                                                        , +1
+                                                                    )}
+                                                                >
+                                                                    +
+                                                                </button>
+
                                                             </div>
                                                             <span
                                                                 className="ml-1 mt-1 text-sm text-nowrap">Base(s) destroyed (1 max)</span>
@@ -105,13 +215,13 @@ export const Play: React.FC<PlayProps> = ({
                                                 : (
                                                     <div className="flex flex-col gap-3 text-sm">
                                                         <div>
-                                                            0 Sabotage/bounty items
+                                                            {x.sabotageOrBountyItemCount} Sabotage/bounty items
                                                         </div>
                                                         <div>
-                                                            0 Starship(s) destroyed
+                                                            {x.starshipsDestroyedCount} Starship(s) destroyed
                                                         </div>
                                                         <div>
-                                                            0 Base(s) destroyed
+                                                            {x.basesDestroyedCount} Base(s) destroyed
                                                         </div>
                                                     </div>
                                                 )
