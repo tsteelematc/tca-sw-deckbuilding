@@ -24,8 +24,6 @@ export const Home: React.FC<HomeProps> = ({
     , avgTurnsPerGame
 }) => {
 
-    console.log(avgTurnsPerGame);
-
     useEffect(
         () => setTitle(AppTitle)
         , []
