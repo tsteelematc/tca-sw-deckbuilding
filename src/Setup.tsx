@@ -127,8 +127,8 @@ export const Setup: React.FC<SetupProps> = ({
                     onChange={(e) => setNewPlayerName(e.target.value)}
                 />
                 <button 
-                    className="btn join-item"
-                    disabled={newPlayerName.length === 0}
+                    className="btn btn-outline join-item"
+                    // disabled={newPlayerName.length === 0}
                     onClick={validateAndAddNewPlayer}
                 >
                     Add
@@ -256,12 +256,20 @@ export const Setup: React.FC<SetupProps> = ({
                     <h3 
                         className="font-bold text-lg"
                     >
-                        Duplicate player name...
+                        {
+                            newPlayerName.length > 0
+                                ? "Duplicate player name..."
+                                : "Empty player name..."
+                        }
                     </h3>
                     <p 
                         className="py-4"
                     >
-                        Choose this player below if it is the same {newPlayerName}, otherwise make it unique, maybe 'Cheating {newPlayerName}' : - O
+                        {
+                            newPlayerName.length > 0
+                             ? `Choose this player below if it is the same ${newPlayerName}, otherwise make it unique, maybe 'Cheating ${newPlayerName}' : - O`
+                             : "Enter a player name, then press 'Add'"
+                        }
                     </p>
                 </div>
             </dialog>
