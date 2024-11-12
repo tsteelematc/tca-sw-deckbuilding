@@ -12,9 +12,9 @@ const formatLastPlayed = durationFormatter<string>({
 export type Turn = {
     turnNumber: number;
     player: string;
-    // startTime: string;
-    // endTime: string;
-    didTheThing: boolean;
+    sabotageOrBountyItemCount: number;
+    starshipsDestroyedCount: number;
+    basesDestroyedCount: number;
 };
 
 export type GameResult = {
@@ -127,25 +127,6 @@ export const getGeneralFacts = (results: GameResult[]): GeneralFactsDisplay => {
             ? formatGameDuration(longestGameInMilliseconds)
             : 'n/a'
     };
-};
-
-export const getAvgThingsPerWin = (results: GameResult[]) => {
-
-    const thingsDoneByWinnerCounts = results.map(
-        x => x.turns.filter(
-            y => y.player === x.winner && y.didTheThing
-        ).length
-    );
-
-    // console.log(thingsDoneByWinnerCounts);
-
-    return thingsDoneByWinnerCounts.length > 0 
-        ? thingsDoneByWinnerCounts.reduce(
-            (acc, x) => acc + x
-            , 0
-        ) / thingsDoneByWinnerCounts.length
-        : 0
-    ;
 };
 
 export const getAvgTurnsPerGame = (results: GameResult[]) => {

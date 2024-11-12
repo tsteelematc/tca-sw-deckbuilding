@@ -27,7 +27,9 @@ export const Play: React.FC<PlayProps> = ({
         {
             turnNumber: 1
             , player: currentPlayers[0].name
-            , didTheThing: false
+            , sabotageOrBountyItemCount: 0
+            , starshipsDestroyedCount: 0
+            , basesDestroyedCount: 0
         }
     ]);
 
@@ -141,7 +143,9 @@ export const Play: React.FC<PlayProps> = ({
                                     , player: currentPlayers[
                                         turns.length % currentPlayers.length
                                     ].name
-                                    , didTheThing: false
+                                    , sabotageOrBountyItemCount: 0
+                                    , starshipsDestroyedCount: 0
+                                    , basesDestroyedCount: 0
                                 }
                             ])}
                         >

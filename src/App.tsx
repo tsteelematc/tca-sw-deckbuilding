@@ -32,32 +32,44 @@ const dummyGameResults: GameResult[] = [
           {
               turnNumber: 1
               , player: "Tom"
-              , didTheThing: false
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 1
               , player: "Jack"
-              , didTheThing: false
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 2
               , player: "Tom"
-              , didTheThing: true
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 2
               , player: "Jack"
-              , didTheThing: false
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 3
               , player: "Tom"
-              , didTheThing: true
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 3
               , player: "Jack"
-              , didTheThing: false
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
       ]
   }
@@ -73,22 +85,30 @@ const dummyGameResults: GameResult[] = [
           {
               turnNumber: 1
               , player: "Tom"
-              , didTheThing: false
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 1
               , player: "Jack"
-              , didTheThing: true
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 2
               , player: "Tom"
-              , didTheThing: true
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
           , {
               turnNumber: 2
               , player: "Jack"
-              , didTheThing: true
+              , sabotageOrBountyItemCount: 0
+              , starshipsDestroyedCount: 0
+              , basesDestroyedCount: 0
           }
       ]
   }
