@@ -44,133 +44,84 @@ export const Play: React.FC<PlayProps> = ({
                     >
                         Enter turn info after taking your turn...
                     </h2>
-                    <table
-                        className="table table-auto"
-                    >
-                        <thead>
-                            <tr>
-                                <th>
-                                    Turn #
-                                </th>
-                                <th>
-                                    Turn Info
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                turns.map((x, i) => (
-                                    <tr
-                                        key={`${x.turnNumber}~${x.player}`}
-                                    >
-                                        <td
-                                        className="align-top"
-                                        >
-                                            {x.turnNumber}
-                                        </td>
-                                        <td
-                                            className="text-center123"
-                                        >
-                                            <div
-                                                className="flex flex-col gap-3"
-                                            >
-                                                <h3 className="text-md font-bold">
-                                                    {x.player}
-                                                </h3>
-                                                {
-                                                    turns.length - 1 === i
-                                                        ? (
-                                                            <label>
-                                                                <input 
-                                                                    type="checkbox" 
-                                                                    className="checkbox" 
-                                                                    checked={x.didTheThing}
-                                                                    onChange={() => setTurns(
-                                                                        turns.map((y, i) =>({
-                                                                            ...y 
-                                                                            , didTheThing: turns.length - 1 === i
-                                                                                ? !y.didTheThing 
-                                                                                : y.didTheThing
-                                                                        }))
-                                                                    )}
-                                                                />
-                                                                Detroyed a base                                                                
-                                                            </label>
-                                                        )
-                                                        : x.didTheThing ? "1" : "0"
-                                                }
-                                            </div>
-                                        </td>
-                                    </tr>
-                                ))
-                            }
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td
-                                    className="text-center"
-                                >
-                                    <div 
-                                        className="join"
-                                    >
-                                        <button
-                                            className="join-item btn btn-outline btn-sm"
-                                            disabled={turns.length <= 1}
-                                            onClick={() => setTurns(turns.slice(0, -1))}
-                                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
-                                        >
-                                            &lt;
-                                        </button>
-                                        <button
-                                            className="join-item btn btn-outline btn-sm"
-                                            onClick={() => setTurns([
-                                                ...turns 
-                                                , {
-                                                    turnNumber: turns.length % currentPlayers.length > 0
-                                                        ? Math.ceil(turns.length / currentPlayers.length)
-                                                        : (turns.length / currentPlayers.length) + 1
-                                                    , player: currentPlayers[
-                                                        turns.length % currentPlayers.length
-                                                    ].name
-                                                    , didTheThing: false
-                                                }
-                                            ])}
-                                        >
-                                            Next &gt;
-                                        </button>
-                                    </div>                                    
-                                </td>
-                            </tr>
+
+                    {
+                        turns.map((x, i) => (
                             <tr
-                                className="font-bold"
+                                key={`${x.turnNumber}~${x.player}`}
                             >
                                 <td
-                                    className="align-top"
+                                className="align-top"
                                 >
-                                    Totals
+                                    {x.turnNumber}
                                 </td>
                                 <td
-                                    className="ml-auto bg-error"
+                                    className="text-center123"
                                 >
-                                    {
-                                        currentPlayers.map(x =>(
-                                            <div>
-                                                <div>
-                                                    {x.name}
-                                                </div>
-                                                <div>
-                                                    0 / 0 / 0 (bases / starships / bounties)    
-                                                </div>
-                                            </div>
-                                        ))
-                                    }
+                                    <div
+                                        className="flex flex-col gap-3"
+                                    >
+                                        <h3 className="text-md font-bold">
+                                            {x.player}
+                                        </h3>
+                                        {
+                                            turns.length - 1 === i
+                                                ? (
+                                                    <label>
+                                                        <input 
+                                                            type="checkbox" 
+                                                            className="checkbox" 
+                                                            checked={x.didTheThing}
+                                                            onChange={() => setTurns(
+                                                                turns.map((y, i) =>({
+                                                                    ...y 
+                                                                    , didTheThing: turns.length - 1 === i
+                                                                        ? !y.didTheThing 
+                                                                        : y.didTheThing
+                                                                }))
+                                                            )}
+                                                        />
+                                                        Detroyed a base                                                                
+                                                    </label>
+                                                )
+                                                : x.didTheThing ? "1" : "0"
+                                        }
+                                    </div>
                                 </td>
                             </tr>
-                        </tbody>
-                    </table>
+                        ))
+                    }
+                    <div 
+                        className="join"
+                    >
+                        <button
+                            className="join-item btn btn-outline btn-sm"
+                            disabled={turns.length <= 1}
+                            onClick={() => setTurns(turns.slice(0, -1))}
+                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
+                        >
+                            &lt;
+                        </button>
+                        <button
+                            className="join-item btn btn-outline btn-sm"
+                            onClick={() => setTurns([
+                                ...turns 
+                                , {
+                                    turnNumber: turns.length % currentPlayers.length > 0
+                                        ? Math.ceil(turns.length / currentPlayers.length)
+                                        : (turns.length / currentPlayers.length) + 1
+                                    , player: currentPlayers[
+                                        turns.length % currentPlayers.length
+                                    ].name
+                                    , didTheThing: false
+                                }
+                            ])}
+                        >
+                            Next &gt;
+                        </button>
+                    </div>                                    
                 </div>
             </div>
-
             <div
                 className="card bg-base-100 shadow-xl mb-3"
             >
