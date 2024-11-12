@@ -322,7 +322,7 @@ export const Play: React.FC<PlayProps> = ({
                     <h2
                         className="card-title"
                     >
-                        Totals
+                        Game Over
                     </h2>
 
                     <div
@@ -390,61 +390,39 @@ export const Play: React.FC<PlayProps> = ({
                                                 )
                                         } Base(s) destroyed
                                     </div>
+                                    <button
+                                        key={x.name}
+                                        className={`btn btn-lg ${x.name === leadingPlayer ? "btn-neutral" : "btn-outline"} mb-3 ml-3 flex-nowrap overflow-hidden`}
+                                        onClick={() => {
+
+                                            if (x.name !== leadingPlayer) {
+                                                // Do nothing... Maybe obvious to user that player is behind ? ? ?
+                                                return;
+                                            }
+
+                                            addNewGameResult({
+                                                startTime: startTimeState,
+                                                endTime: new Date().toISOString(),
+                                                winner: x.name,
+                                                players: currentPlayers.map(y => y.name),
+                                                turns: turns
+                                            });
+                                            nav(-2);
+                                        }}
+                                    >
+                                        <div
+                                            className="text-nowrap"
+                                        >
+                                            {x.name} Won
+                                        </div>
+                                        <div
+                                            className={`badge badge-outline ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
+                                        >
+                                            {x.faction}
+                                        </div>
+                                    </button>
 
                                 </div>
-                            ))
-                        }
-                    </div>
-                </div>
-            </div>
-            <div
-                className="card bg-base-100 shadow-xl mb-3"
-            >
-                <div
-                    className="card-body p-3 overflow-x-hidden"
-                >
-                    <h2
-                        className="card-title"
-                    >
-                        Game Over
-                    </h2>
-
-                    <div
-                        className="flex flex-col"
-                    >
-                        {
-                            currentPlayers.map(x => (
-                                <button
-                                    key={x.name}
-                                    className={`btn btn-lg ${x.name === leadingPlayer ? "btn-neutral" : "btn-outline"} mb-3 ml-3 flex-nowrap overflow-hidden`}
-                                    onClick={() => {
-
-                                        if (x.name !== leadingPlayer) {
-                                            // Do nothing... Maybe obvious to user that player is behind ? ? ?
-                                            return;
-                                        }
-
-                                        addNewGameResult({
-                                            startTime: startTimeState,
-                                            endTime: new Date().toISOString(),
-                                            winner: x.name,
-                                            players: currentPlayers.map(y => y.name),
-                                            turns: turns
-                                        });
-                                        nav(-2);
-                                    }}
-                                >
-                                    <div
-                                        className="text-nowrap"
-                                    >
-                                        {x.name} Won
-                                    </div>
-                                    <div
-                                        className={`badge badge-outline ${x.faction === "Rebel" || x.faction === "Republic" ? 'badge-error' : 'badge-info'}`}
-                                    >
-                                        {x.faction}
-                                    </div>
-                                </button>
                             ))
                         }
                     </div>
