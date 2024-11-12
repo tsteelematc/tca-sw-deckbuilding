@@ -284,6 +284,81 @@ export const Play: React.FC<PlayProps> = ({
                     <h2
                         className="card-title"
                     >
+                        Totals
+                    </h2>
+
+                    <div
+                        className="flex flex-col"
+                    >
+                        {
+                            currentPlayers.map(x => (
+                                <div className="flex flex-col gap-3 mb-5 text-sm">
+                                    <h2
+                                        className="font-lg font-bold"
+                                    >
+                                        {x.name}
+                                    </h2>
+                                    <div>
+                                        {
+                                            turns
+                                                .filter(
+                                                    y => y.player === x.name
+                                                )
+                                                .map(
+                                                    y => y.sabotageOrBountyItemCount
+                                                )
+                                                .reduce(
+                                                    (acc, y) => acc + y
+                                                    , 0
+                                                )
+                                        } Sabotage/bounty items
+                                    </div>
+                                    <div>
+                                    {
+                                            turns
+                                                .filter(
+                                                    y => y.player === x.name
+                                                )
+                                                .map(
+                                                    y => y.starshipsDestroyedCount
+                                                )
+                                                .reduce(
+                                                    (acc, y) => acc + y
+                                                    , 0
+                                                )
+                                        } Starship(s) destroyed
+                                    </div>
+                                    <div>
+                                    {
+                                            turns
+                                                .filter(
+                                                    y => y.player === x.name
+                                                )
+                                                .map(
+                                                    y => y.basesDestroyedCount
+                                                )
+                                                .reduce(
+                                                    (acc, y) => acc + y
+                                                    , 0
+                                                )
+                                        } Base(s) destroyed
+                                    </div>
+
+                                </div>
+                            ))
+                        }
+                    </div>
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
                         Game Over
                     </h2>
 
