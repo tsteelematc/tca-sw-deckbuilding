@@ -17,7 +17,7 @@ export const Play: React.FC<PlayProps> = ({
     useEffect(
         () => setTitle("Play")
         , []
-    );    
+    );
 
     const nav = useNavigate();
 
@@ -25,7 +25,7 @@ export const Play: React.FC<PlayProps> = ({
 
     const [turns, setTurns] = useState<Turn[]>([
         {
-            turnNumber: 1 
+            turnNumber: 1
             , player: currentPlayers[0].name
             , didTheThing: false
         }
@@ -52,7 +52,7 @@ export const Play: React.FC<PlayProps> = ({
                                 key={`${x.turnNumber}~${x.player}`}
                             >
                                 <div
-                                className="align-top text-2xl"
+                                    className="align-top text-2xl"
                                 >
                                     {x.turnNumber}
                                 </div>
@@ -68,24 +68,55 @@ export const Play: React.FC<PlayProps> = ({
                                         {
                                             turns.length - 1 === i
                                                 ? (
-                                                    <label
-                                                        className="flex gap-3"
+                                                    <div
+                                                        className="flex flex-col gap-3"
                                                     >
-                                                        <input 
-                                                            type="checkbox" 
-                                                            className="checkbox" 
-                                                            checked={x.didTheThing}
-                                                            onChange={() => setTurns(
-                                                                turns.map((y, i) =>({
-                                                                    ...y 
-                                                                    , didTheThing: turns.length - 1 === i
-                                                                        ? !y.didTheThing 
-                                                                        : y.didTheThing
-                                                                }))
-                                                            )}
-                                                        />
-                                                        Detroyed a base                                                                
-                                                    </label>
+                                                        <div className="flex gap-3">
+                                                            <div className="join flex">
+                                                                <button className="btn btn-sm btn-outline join-item">-</button>
+                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                            </div>
+                                                            <span
+                                                                className="ml-1 mt-1 text-md text-nowrap">Sabotage/Bounty items</span>
+                                                        </div>
+                                                        <div className="flex gap-3">
+                                                            <div className="join flex">
+                                                                <button className="btn btn-sm btn-outline join-item">-</button>
+                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                            </div>
+                                                            <span
+                                                                className="ml-1 mt-1 text-md text-nowrap">Starship(s) destroyed</span>
+                                                        </div>
+                                                        <div className="flex gap-3">
+                                                            <div className="join flex">
+                                                                <button className="btn btn-sm btn-outline join-item">-</button>
+                                                                <input type="text" className="join-item text-xl mx-5 w-3" value={0} />
+                                                                <button className="btn btn-sm btn-outline join-item">+</button>
+                                                            </div>
+                                                            <span
+                                                                className="ml-1 mt-1 text-md text-nowrap">Base destroyed (1 max)</span>
+                                                        </div>
+                                                        {/* <label
+                                                            className="flex gap-3"
+                                                        >
+                                                            <input
+                                                                type="checkbox"
+                                                                className="checkbox"
+                                                                checked={x.didTheThing}
+                                                                onChange={() => setTurns(
+                                                                    turns.map((y, i) => ({
+                                                                        ...y
+                                                                        , didTheThing: turns.length - 1 === i
+                                                                            ? !y.didTheThing
+                                                                            : y.didTheThing
+                                                                    }))
+                                                                )}
+                                                            />
+                                                            Detroyed a base
+                                                        </label> */}
+                                                    </div>
                                                 )
                                                 : x.didTheThing ? "1 base destroyed" : "0 bases destroyed"
                                         }
@@ -94,21 +125,21 @@ export const Play: React.FC<PlayProps> = ({
                             </div>
                         ))
                     }
-                    <div 
-                        className="join mt-10"
+                    <div
+                        className="join mt-10 ml-auto"
                     >
                         <button
                             className="join-item btn btn-outline btn-sm"
                             disabled={turns.length <= 1}
                             onClick={() => setTurns(turns.slice(0, -1))}
-                            // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
+                        // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
                         >
                             &lt;
                         </button>
                         <button
                             className="join-item btn btn-outline btn-sm"
                             onClick={() => setTurns([
-                                ...turns 
+                                ...turns
                                 , {
                                     turnNumber: turns.length % currentPlayers.length > 0
                                         ? Math.ceil(turns.length / currentPlayers.length)
@@ -122,7 +153,7 @@ export const Play: React.FC<PlayProps> = ({
                         >
                             Next &gt;
                         </button>
-                    </div>                                    
+                    </div>
                 </div>
             </div>
             <div
