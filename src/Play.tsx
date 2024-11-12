@@ -247,8 +247,8 @@ export const Play: React.FC<PlayProps> = ({
                     >
                         <button
                             className="join-item btn btn-outline btn-sm"
-                            disabled={turns.length <= 1}
-                            onClick={() => setTurns(turns.slice(0, -1))}
+                            // disabled={turns.length <= 1}
+                            onClick={() => turns.length > 1 && setTurns(turns.slice(0, -1))}
                         // onClick={() => setTurns(turns.filter((x, i) => i < turns.length))}
                         >
                             &lt;
