@@ -86,9 +86,14 @@ export const Setup: React.FC<SetupProps> = ({
     return (
         <div>
             <button
-                className="btn btn-lg btn-neutral mb-3 w-full overflow-hidden"
-                disabled={!twoPlayersAndFactionsChosen}
+                className={`btn btn-lg ${!twoPlayersAndFactionsChosen ? "btn-outline" : "btn-neutral"} mb-3 w-full overflow-hidden`}
+                // disabled={!twoPlayersAndFactionsChosen}
                 onClick={() => {
+
+                    if (!twoPlayersAndFactionsChosen) {
+                        return; // Do nothing, hopefully obvious to user...
+                    }
+
                     setCurrentPlayers(
                         availablePlayers
                             .filter(x => x.checked)
