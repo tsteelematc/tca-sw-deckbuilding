@@ -292,13 +292,18 @@ export const Play: React.FC<PlayProps> = ({
                     >
                         {
                             currentPlayers.map(x => (
-                                <div className="flex flex-col gap-3 mb-5 text-sm">
+                                <div
+                                    key={x.name} 
+                                    className="flex flex-col gap-3 mb-5 text-sm"
+                                >
                                     <h2
                                         className="font-lg font-bold"
                                     >
                                         {x.name}
                                     </h2>
-                                    <div>
+                                    <div
+                                        className="ml-3"
+                                    >
                                         {
                                             turns
                                                 .filter(
@@ -313,7 +318,9 @@ export const Play: React.FC<PlayProps> = ({
                                                 )
                                         } Sabotage/bounty items
                                     </div>
-                                    <div>
+                                    <div
+                                        className="ml-3"
+                                    >
                                     {
                                             turns
                                                 .filter(
@@ -328,7 +335,9 @@ export const Play: React.FC<PlayProps> = ({
                                                 )
                                         } Starship(s) destroyed
                                     </div>
-                                    <div>
+                                    <div
+                                        className="ml-3"
+                                    >
                                     {
                                             turns
                                                 .filter(
@@ -369,7 +378,7 @@ export const Play: React.FC<PlayProps> = ({
                             currentPlayers.map(x => (
                                 <button
                                     key={x.name}
-                                    className="btn btn-lg btn-outline mb-3 ml-3 flex-nowrap overflow-hidden"
+                                    className={`btn btn-lg btn-neutral mb-3 ml-3 flex-nowrap overflow-hidden`}
                                     onClick={() => {
                                         addNewGameResult({
                                             startTime: startTimeState,
