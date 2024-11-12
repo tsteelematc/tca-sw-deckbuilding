@@ -33,46 +33,57 @@ export const Play: React.FC<PlayProps> = ({
         }
     ]);
 
-    const updateSabotageOrBountItemCount = (
+    const updateSabotageOrBountyItemCount = (
         player: string
         , turnNumber: number
-        , delta: number) => setTurns(
-            turns.map(
-                x => ({
-                    ...x
-                    , sabotageOrBountyItemCount: player === x.player && turnNumber === x.turnNumber
-                        ? x.sabotageOrBountyItemCount + delta 
-                        : x.sabotageOrBountyItemCount
-                })
-            )
+        , delta: number
+    ) => setTurns(
+        turns.map(
+            x => ({
+                ...x
+                , sabotageOrBountyItemCount: player === x.player && turnNumber === x.turnNumber
+                    ? x.sabotageOrBountyItemCount === 0 && delta < 0 
+                        ? 0 
+                        : x.sabotageOrBountyItemCount + delta 
+                    : x.sabotageOrBountyItemCount
+            })
+        )
     );
 
     const updateStarshipsDestroyedCount = (
         player: string
         , turnNumber: number
-        , delta: number) => setTurns(
-            turns.map(
-                x => ({
-                    ...x
-                    , starshipsDestroyedCount: player === x.player && turnNumber === x.turnNumber
-                        ? x.starshipsDestroyedCount + delta 
-                        : x.starshipsDestroyedCount
-                })
-            )
+        , delta: number
+    ) => setTurns(
+        turns.map(
+            x => ({
+                ...x
+                , starshipsDestroyedCount: player === x.player && turnNumber === x.turnNumber
+                    ? x.starshipsDestroyedCount === 0 && delta < 0 
+                        ? 0 
+                        : x.starshipsDestroyedCount + delta 
+                    : x.starshipsDestroyedCount
+            })
+        )
     );
 
     const updateBasesDestroyedCount = (
         player: string
         , turnNumber: number
-        , delta: number) => setTurns(
-            turns.map(
-                x => ({
-                    ...x
-                    , basesDestroyedCount: player === x.player && turnNumber === x.turnNumber
-                        ? x.basesDestroyedCount + delta 
-                        : x.basesDestroyedCount
-                })
-            )
+        , delta: number
+    ) => setTurns(
+        turns.map(
+            x => ({
+                ...x
+                , basesDestroyedCount: player === x.player && turnNumber === x.turnNumber
+                    ? x.basesDestroyedCount === 0 && delta < 0 
+                        ? 0 
+                        : x.basesDestroyedCount === 1 && delta > 0
+                            ? 1
+                            : x.basesDestroyedCount + delta 
+                    : x.basesDestroyedCount
+            })
+        )
     );
 
     return (
@@ -119,7 +130,7 @@ export const Play: React.FC<PlayProps> = ({
                                                             <div className="join flex">
                                                                 <button 
                                                                     className="btn btn-sm btn-outline join-item"
-                                                                    onClick={() => updateSabotageOrBountItemCount(
+                                                                    onClick={() => updateSabotageOrBountyItemCount(
                                                                         x.player
                                                                         , x.turnNumber
                                                                         , -1
@@ -134,7 +145,7 @@ export const Play: React.FC<PlayProps> = ({
                                                                 </span>
                                                                 <button 
                                                                     className="btn btn-sm btn-outline join-item"
-                                                                    onClick={() => updateSabotageOrBountItemCount(
+                                                                    onClick={() => updateSabotageOrBountyItemCount(
                                                                         x.player
                                                                         , x.turnNumber
                                                                         , +1
