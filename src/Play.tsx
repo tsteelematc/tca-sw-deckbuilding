@@ -40,34 +40,37 @@ export const Play: React.FC<PlayProps> = ({
                     className="card-body p-3 overflow-x-hidden"
                 >
                     <h2
-                        className="card-title text-sm"
+                        className="card-title text-sm font-light"
                     >
                         Enter turn info after taking your turn...
                     </h2>
 
                     {
                         turns.map((x, i) => (
-                            <tr
+                            <div
+                                className="flex gap-3 mb-3"
                                 key={`${x.turnNumber}~${x.player}`}
                             >
-                                <td
-                                className="align-top"
+                                <div
+                                className="align-top text-2xl"
                                 >
                                     {x.turnNumber}
-                                </td>
-                                <td
-                                    className="text-center123"
+                                </div>
+                                <div
+                                    className="text-2xl123"
                                 >
                                     <div
                                         className="flex flex-col gap-3"
                                     >
-                                        <h3 className="text-md font-bold">
+                                        <h3 className="text-2xl font-bold123">
                                             {x.player}
                                         </h3>
                                         {
                                             turns.length - 1 === i
                                                 ? (
-                                                    <label>
+                                                    <label
+                                                        className="flex gap-3"
+                                                    >
                                                         <input 
                                                             type="checkbox" 
                                                             className="checkbox" 
@@ -84,15 +87,15 @@ export const Play: React.FC<PlayProps> = ({
                                                         Detroyed a base                                                                
                                                     </label>
                                                 )
-                                                : x.didTheThing ? "1" : "0"
+                                                : x.didTheThing ? "1 base destroyed" : "0 bases destroyed"
                                         }
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </div>
                         ))
                     }
                     <div 
-                        className="join"
+                        className="join mt-10"
                     >
                         <button
                             className="join-item btn btn-outline btn-sm"
