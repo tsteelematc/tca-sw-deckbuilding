@@ -96,26 +96,8 @@ export const Play: React.FC<PlayProps> = ({
                                                                 <button className="btn btn-sm btn-outline join-item">+</button>
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-sm text-nowrap">Base destroyed (1 max)</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">Base(s) destroyed (1 max)</span>
                                                         </div>
-                                                        {/* <label
-                                                            className="flex gap-3"
-                                                        >
-                                                            <input
-                                                                type="checkbox"
-                                                                className="checkbox"
-                                                                checked={x.didTheThing}
-                                                                onChange={() => setTurns(
-                                                                    turns.map((y, i) => ({
-                                                                        ...y
-                                                                        , didTheThing: turns.length - 1 === i
-                                                                            ? !y.didTheThing
-                                                                            : y.didTheThing
-                                                                    }))
-                                                                )}
-                                                            />
-                                                            Detroyed a base
-                                                        </label> */}
                                                     </div>
                                                 )
                                                 : (
