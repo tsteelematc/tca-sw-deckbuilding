@@ -118,7 +118,19 @@ export const Play: React.FC<PlayProps> = ({
                                                         </label> */}
                                                     </div>
                                                 )
-                                                : x.didTheThing ? "1 base destroyed" : "0 bases destroyed"
+                                                : (
+                                                    <div className="flex flex-col gap-3 text-sm">
+                                                        <div>
+                                                            0 Sabotage/bounty items
+                                                        </div>
+                                                        <div>
+                                                            0 Starship(s) destroyed
+                                                        </div>
+                                                        <div>
+                                                            0 Base(s) destroyed
+                                                        </div>
+                                                    </div>
+                                                )
                                         }
                                     </div>
                                 </div>
