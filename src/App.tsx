@@ -19,6 +19,8 @@ import {
   , getAvgTurnsPerGame
 } from "./game-results";
 
+import localforage from 'localforage';
+
 const dummyGameResults: GameResult[] = [
   {
       startTime: "2024-10-20T20:08:47.024Z"
@@ -187,7 +189,10 @@ const App = () => {
           <input 
             type="checkbox"
             checked={darkMode} 
-            onChange={() => setDarkMode(!darkMode)}
+            onChange={async () => {
+              await localforage.setItem<boolean>("darkMode", !darkMode);
+              setDarkMode(!darkMode);
+            }}
           />
           <svg
             className="swap-on h-6 w-6 fill-current"
