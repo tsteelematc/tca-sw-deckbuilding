@@ -193,7 +193,7 @@ export const Play: React.FC<PlayProps> = ({
                                                                 </button>
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-sm text-nowrap">Sabotage/bounty items</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">sabotage/bounty items</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
@@ -225,7 +225,7 @@ export const Play: React.FC<PlayProps> = ({
 
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-sm text-nowrap">Starship(s) destroyed</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">starship(s) destroyed</span>
                                                         </div>
                                                         <div className="flex gap-3">
                                                             <div className="join flex">
@@ -257,20 +257,20 @@ export const Play: React.FC<PlayProps> = ({
 
                                                             </div>
                                                             <span
-                                                                className="ml-1 mt-1 text-sm text-nowrap">Base(s) destroyed (1 max)</span>
+                                                                className="ml-1 mt-1 text-sm text-nowrap">base(s) destroyed (1 max)</span>
                                                         </div>
                                                     </div>
                                                 )
                                                 : (
                                                     <div className="flex flex-col gap-3 text-sm">
                                                         <div>
-                                                            {x.sabotageOrBountyItemCount} Sabotage/bounty items
+                                                            {x.sabotageOrBountyItemCount} sabotage/bounty items
                                                         </div>
                                                         <div>
-                                                            {x.starshipsDestroyedCount} Starship(s) destroyed
+                                                            {x.starshipsDestroyedCount} starship(s) destroyed
                                                         </div>
                                                         <div>
-                                                            {x.basesDestroyedCount} Base(s) destroyed
+                                                            {x.basesDestroyedCount} base(s) destroyed
                                                         </div>
                                                     </div>
                                                 )
@@ -354,7 +354,7 @@ export const Play: React.FC<PlayProps> = ({
                                                     (acc, y) => acc + y
                                                     , 0
                                                 )
-                                        } Sabotage/bounty items
+                                        } sabotage/bounty items
                                     </div>
                                     <div
                                         className="ml-3"
@@ -371,7 +371,7 @@ export const Play: React.FC<PlayProps> = ({
                                                     (acc, y) => acc + y
                                                     , 0
                                                 )
-                                        } Starship(s) destroyed
+                                        } starship(s) destroyed
                                     </div>
                                     <div
                                         className="ml-3"
@@ -388,7 +388,7 @@ export const Play: React.FC<PlayProps> = ({
                                                     (acc, y) => acc + y
                                                     , 0
                                                 )
-                                        } Base(s) destroyed
+                                        } base(s) destroyed
                                     </div>
                                     <button
                                         key={x.name}
