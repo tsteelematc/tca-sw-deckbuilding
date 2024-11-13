@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -18,6 +18,8 @@ import {
   , getGeneralFacts
   , getAvgTurnsPerGame
 } from "./game-results";
+
+import localforage from 'localforage';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -135,6 +137,29 @@ const App = () => {
   const [title, setTitle] = useState(AppTitle);
 
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(
+    () => {
+
+      const loadDarkMode = async () => {
+        
+        const savedDarkMode = await localforage.getItem<boolean>("darkMode") ?? false;
+
+        if (!ignore) {
+          setDarkMode(savedDarkMode);
+        }
+      }
+
+      let ignore = false;
+
+      loadDarkMode();
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , []
+  );
     
   const myRouter = createHashRouter(
     [
@@ -187,7 +212,10 @@ const App = () => {
           <input 
             type="checkbox"
             checked={darkMode} 
-            onChange={() => setDarkMode(!darkMode)}
+            onChange={async () => {
+              await localforage.setItem<boolean>("darkMode", !darkMode);
+              setDarkMode(!darkMode);
+            }}
           />
           <svg
             className="swap-on h-6 w-6 fill-current"
