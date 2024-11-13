@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -137,6 +137,29 @@ const App = () => {
   const [title, setTitle] = useState(AppTitle);
 
   const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(
+    () => {
+
+      const loadDarkMode = async () => {
+        
+        const savedDarkMode = await localforage.getItem<boolean>("darkMode") ?? false;
+
+        if (!ignore) {
+          setDarkMode(savedDarkMode);
+        }
+      }
+
+      let ignore = false;
+
+      loadDarkMode();
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , []
+  );
     
   const myRouter = createHashRouter(
     [
