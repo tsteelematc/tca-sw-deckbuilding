@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -126,6 +126,26 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
   const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
+
+  useEffect(() => {
+      const loadDarkMode = async () => {
+        const savedDarkMode = await localforage.getItem<boolean>("darkMode") ?? false;
+
+        if (!ignore) {
+          setDarkMode(savedDarkMode);
+        }
+      };
+
+      let ignore = false;
+      loadDarkMode();
+
+      return () => {
+        ignore = true;
+      }
+    }
+    , []
+  );
+
   //
   // Other code... Calculated state...
   //
