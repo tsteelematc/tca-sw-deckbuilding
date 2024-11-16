@@ -22,6 +22,7 @@ export type GameResult = {
     endTime: string;
 
     winner: string;
+    winningFaction: Faction;
     players: string[];
 
     turns: Turn[];

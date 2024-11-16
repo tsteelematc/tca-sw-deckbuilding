@@ -26,6 +26,7 @@ const dummyGameResults: GameResult[] = [
       startTime: "2024-10-20T20:08:47.024Z"
       , endTime: "2024-10-20T20:23:37.024Z"
       , winner: "Tom"
+      , winningFaction: "Rebel"
       , players: [
           "Tom"
           , "Jack"
@@ -79,6 +80,7 @@ const dummyGameResults: GameResult[] = [
       startTime: "2024-10-20T20:27:47.024Z"
       , endTime: "2024-10-20T20:33:37.024Z"
       , winner: "Jack"
+      , winningFaction: "Empire"
       , players: [
           "Tom"
           , "Jack"

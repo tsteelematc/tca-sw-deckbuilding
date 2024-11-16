@@ -404,6 +404,7 @@ export const Play: React.FC<PlayProps> = ({
                                                 startTime: startTimeState,
                                                 endTime: new Date().toISOString(),
                                                 winner: x.name,
+                                                winningFaction: x.faction,
                                                 players: currentPlayers.map(y => y.name),
                                                 turns: turns
                                             });
