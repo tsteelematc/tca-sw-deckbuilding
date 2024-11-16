@@ -405,6 +405,10 @@ export const Play: React.FC<PlayProps> = ({
                                                 endTime: new Date().toISOString(),
                                                 winner: x.name,
                                                 winningFaction: x.faction,
+
+                                                // Assume losing faction is ONLY other player's faction, i-o-g : - O
+                                                losingFaction: currentPlayers.find(y => y.name !== x.name)?.faction ?? undefined,
+                                                
                                                 players: currentPlayers.map(y => y.name),
                                                 turns: turns
                                             });

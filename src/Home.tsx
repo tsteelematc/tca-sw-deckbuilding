@@ -15,6 +15,7 @@ interface HomeProps {
     generalFactsData: GeneralFactsDisplay;
     setTitle: (t: string) => void;
     avgTurnsPerGame: number;
+    factionLeaderboardData: LeaderboardEntry[];
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -22,6 +23,7 @@ export const Home: React.FC<HomeProps> = ({
     , generalFactsData
     , setTitle
     , avgTurnsPerGame
+    , factionLeaderboardData
 }) => {
 
     useEffect(
@@ -143,6 +145,63 @@ export const Home: React.FC<HomeProps> = ({
                             : (
                                 <p>
                                     Play a game to see the leaderboard!
+                                </p>
+                            )
+                    }
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
+                        Faction Leaderboard
+                    </h2>
+                    {
+                        factionLeaderboardData.length > 0
+                            ? (
+                                <table
+                                    className="table"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th>W</th>
+                                            <th>L</th>
+                                            <th>AVG</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            factionLeaderboardData.map(x =>(
+                                                <tr
+                                                    key={x.name}
+                                                >
+                                                    <td>
+                                                        {x.wins}
+                                                    </td>
+                                                    <td>
+                                                        {x.losses}
+                                                    </td>
+                                                    <td>
+                                                        {x.avg}
+                                                    </td>
+                                                    <td>
+                                                        {x.name}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            )
+                            : (
+                                <p>
+                                    Gotta play a game to see this leaderboard : - )
                                 </p>
                             )
                     }

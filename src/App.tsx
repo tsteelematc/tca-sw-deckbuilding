@@ -17,6 +17,7 @@ import {
   , getPreviousPlayers
   , getGeneralFacts
   , getAvgTurnsPerGame
+  , getFactionLeaderboard
 } from "./game-results";
 
 import localforage from 'localforage';
@@ -27,6 +28,7 @@ const dummyGameResults: GameResult[] = [
       , endTime: "2024-10-20T20:23:37.024Z"
       , winner: "Tom"
       , winningFaction: "Rebel"
+      , losingFaction: "Empire"
       , players: [
           "Tom"
           , "Jack"
@@ -81,6 +83,7 @@ const dummyGameResults: GameResult[] = [
       , endTime: "2024-10-20T20:33:37.024Z"
       , winner: "Jack"
       , winningFaction: "Empire"
+      , losingFaction: "Rebel"
       , players: [
           "Tom"
           , "Jack"
@@ -172,6 +175,7 @@ const App = () => {
           generalFactsData={getGeneralFacts(gameResults)} 
           setTitle={setTitle}
           avgTurnsPerGame={getAvgTurnsPerGame(gameResults)}
+          factionLeaderboardData={getFactionLeaderboard(gameResults)}
         />,
       },
       {

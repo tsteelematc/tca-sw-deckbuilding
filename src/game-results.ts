@@ -23,6 +23,7 @@ export type GameResult = {
 
     winner: string;
     winningFaction: Faction;
+    losingFaction: Faction;
     players: string[];
 
     turns: Turn[];
@@ -156,6 +157,30 @@ export const getAvgTurnsPerGame = (results: GameResult[]) => {
             ) / arrayOfMaxTurnNumbers.length
             : 0
     );
+};
+
+export const getFactionLeaderboard = (results: GameResult[]) => {
+
+    //
+    // Transform the game results so that...
+    //
+    // . winner = winningFaction, and
+    // . players array are the factions that played
+    //
+    const trickyTransformedResults = results.map(
+        x => ({
+            ...x 
+            , winner: x.winningFaction ?? ""
+            , players: [
+                x.winningFaction?.toString() ?? ""
+                , x.losingFaction?.toString() ?? ""
+            ]
+        })
+    );
+
+    // Then hopefully we can just call the existing getLeaderboard and 
+    // have a faction leadeboard ! ! ! i-o-g
+    return getLeaderboard(trickyTransformedResults);
 };
 
 //
