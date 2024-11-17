@@ -183,6 +183,59 @@ export const getFactionLeaderboard = (results: GameResult[]) => {
     return getLeaderboard(trickyTransformedResults);
 };
 
+export const getBaseCountFacts = (results: GameResult[]) => {
+
+    // Sum of the number of bases the winning player destroyed.
+    const arrayOfNumberOfWinningPlayerBasesDestroyed = results.map(
+        x => x
+            .turns.filter(
+                y => y.player = x.winner
+            )
+            .reduce(
+                (acc, y) => acc + y.basesDestroyedCount
+                , 0
+            )
+    );
+
+    // Group by and count with the number of games.
+    // const groupedByBaseCount = Map.groupBy(
+    //     arrayOfNumberOfWinningPlayerBasesDestroyed
+    //     , x => x
+    // );
+
+    const groupedByBaseCount = arrayOfNumberOfWinningPlayerBasesDestroyed.reduce(
+        (acc, x) => acc.set(
+            x 
+            , [
+                ...acc.get(x) ?? []
+                , x
+            ]
+        ) 
+        , new Map<number, number[]>()
+    );
+
+    return (
+        [...groupedByBaseCount]
+            .map(
+                x => ({
+                    bases: x[0]
+                    , games: x[1].length
+                })
+            )
+            .sort(
+                (a, b) => a.bases - b.bases
+            )
+    );
+};
+
+export const getStarshipFacts = (results: GameResult[]) => {
+
+    return {
+        avgWinningPlayerBasesDestroyed: "4.25"
+        , avgWinningPlayerSabotageOrBountyItems: "2.33"
+    };
+};
+
 //
 // Helper funcs...
 //

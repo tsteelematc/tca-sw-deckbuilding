@@ -18,6 +18,7 @@ import {
   , getGeneralFacts
   , getAvgTurnsPerGame
   , getFactionLeaderboard
+  , getBaseCountFacts
 } from "./game-results";
 
 import localforage from 'localforage';
@@ -39,7 +40,7 @@ const dummyGameResults: GameResult[] = [
               , player: "Tom"
               , sabotageOrBountyItemCount: 0
               , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
+              , basesDestroyedCount: 1
           }
           , {
               turnNumber: 1
@@ -53,7 +54,7 @@ const dummyGameResults: GameResult[] = [
               , player: "Tom"
               , sabotageOrBountyItemCount: 0
               , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
+              , basesDestroyedCount: 1
           }
           , {
               turnNumber: 2
@@ -101,7 +102,7 @@ const dummyGameResults: GameResult[] = [
               , player: "Jack"
               , sabotageOrBountyItemCount: 0
               , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
+              , basesDestroyedCount: 1
           }
           , {
               turnNumber: 2
@@ -176,6 +177,7 @@ const App = () => {
           setTitle={setTitle}
           avgTurnsPerGame={getAvgTurnsPerGame(gameResults)}
           factionLeaderboardData={getFactionLeaderboard(gameResults)}
+          baseCountFacts={getBaseCountFacts(gameResults)}
         />,
       },
       {

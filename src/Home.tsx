@@ -16,6 +16,7 @@ interface HomeProps {
     setTitle: (t: string) => void;
     avgTurnsPerGame: number;
     factionLeaderboardData: LeaderboardEntry[];
+    baseCountFacts: {bases: number, games: number}[];
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -24,6 +25,7 @@ export const Home: React.FC<HomeProps> = ({
     , setTitle
     , avgTurnsPerGame
     , factionLeaderboardData
+    , baseCountFacts
 }) => {
 
     useEffect(
@@ -215,6 +217,56 @@ export const Home: React.FC<HomeProps> = ({
                     <h1 className="text-5xl font-bold">
                         {avgTurnsPerGame.toFixed(2)}
                     </h1>
+                </div>
+            </div>
+
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
+                        Games to X Bases
+                    </h2>
+                    {
+                        baseCountFacts.length > 0
+                            ? (
+                                <table
+                                    className="table"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th>BASES</th>
+                                            <th># GAMES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            baseCountFacts.map(x =>(
+                                                <tr
+                                                    key={x.bases}
+                                                >
+                                                    <td>
+                                                        {x.bases}
+                                                    </td>
+                                                    <td>
+                                                        {x.games}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            )
+                            : (
+                                <p>
+                                    Play some games...
+                                </p>
+                            )
+                    }
                 </div>
             </div>
         </div>
