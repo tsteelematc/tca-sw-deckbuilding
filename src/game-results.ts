@@ -48,6 +48,7 @@ export type GeneralFactsDisplay = {
     totalGames: number; 
     shortestGame: string;
     longestGame: string;
+    averageGame: string;
 };
 
 //
@@ -127,6 +128,14 @@ export const getGeneralFacts = (results: GameResult[]): GeneralFactsDisplay => {
             : 'n/a'
         , longestGame: results.length > 0
             ? formatGameDuration(longestGameInMilliseconds)
+            : 'n/a'
+        , averageGame: results.length > 0
+            ? formatGameDuration(
+                gameDurationsInMilliseconds.reduce(
+                    (acc, x) => acc + x
+                    , 0
+                ) / results.length
+            )
             : 'n/a'
     };
 };
