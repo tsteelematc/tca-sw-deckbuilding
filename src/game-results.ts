@@ -260,54 +260,25 @@ export const getStarshipFacts = (results: GameResult[]) => {
 
 export const getMonthBasedGamesDistribution = (results: GameResult[]) => {
 
-    // Get start months...
-    const gameStartMonths = results.map(
-        // x => new Date(x.startTime).getMonth()
-        // x => new Date(x.startTime).getMonth() + 1
-        x => new Date(x.startTime).toLocaleString(
-            'default'
-            , {
-                month: 'short'
-            }
-        )
-    );
-
-    // Group by months...
-    // const groupedByMonth = Map.groupBy(
-    //     gameStartMonths
-    //     , x => x
-    // );
-
-    const groupedByMonth = gameStartMonths.reduce(
-        (acc, x) => acc.set(
-            x 
-            , (acc.get(x) ?? 0) + 1
-        ) 
-        , new Map<string, number>([
-            ['Jan', 0]
-            , ['Feb', 0]
-            , ['Mar', 0]
-            , ['Apr', 0]
-            , ['May', 0]
-            , ['Jun', 0]
-            , ['Jul', 0]
-            , ['Aug', 0]
-            , ['Sep', 0]
-            , ['Oct', 0]
-            , ['Nov', 0]
-            , ['Dec', 0]
-        ])
-    );
-
-    // console.log(
-    //     gameStartMonths
-    //     , groupedByMonth
-    // );   
-
     return (
-        [...groupedByMonth].map(x => ({
+        ([
+            ['Jan', 0]
+            , ['Feb', 1]
+            , ['Mar', 2]
+            , ['Apr', 3]
+            , ['May', 4]
+            , ['Jun', 5]
+            , ['Jul', 6]
+            , ['Aug', 7]
+            , ['Sep', 8]
+            , ['Oct', 9]
+            , ['Nov', 10]
+            , ['Dec', 11]
+        ] as [string, number][]).map(x => ({
             month: x[0]
-            , gameCount: x[1]
+            , gameCount: results.filter(
+                y => new Date(y.startTime).getMonth() == x[1]
+            ).length
         }))
     );
 };
