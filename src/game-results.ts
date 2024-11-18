@@ -212,15 +212,18 @@ export const getBaseCountFacts = (results: GameResult[]) => {
     //     , x => x
     // );
 
+    // Since mapped in same order as results, can use i in reduce to get back
+    // to the actual game result. This will allow us to calculate avg game
+    // duration by number of based, phew... i-o-g ! ! !
     const groupedByBaseCount = arrayOfNumberOfWinningPlayerBasesDestroyed.reduce(
-        (acc, x) => acc.set(
+        (acc, x, i) => acc.set(
             x 
             , [
                 ...acc.get(x) ?? []
-                , x
+                , results[i]
             ]
         ) 
-        , new Map<number, number[]>()
+        , new Map<number, GameResult[]>()
     );
 
     return (
@@ -229,6 +232,16 @@ export const getBaseCountFacts = (results: GameResult[]) => {
                 x => ({
                     bases: x[0]
                     , games: x[1].length
+                    , avgDuration: formatGameDuration(
+                        x[1]
+                            .map(
+                                y => Date.parse(y.endTime) - Date.parse(y.startTime)
+                            )
+                            .reduce(
+                                (acc, y) => acc + y
+                                , 0
+                            ) / x[1].length
+                    )
                 })
             )
             .sort(

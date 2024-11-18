@@ -16,7 +16,7 @@ interface HomeProps {
     setTitle: (t: string) => void;
     avgTurnsPerGame: number;
     factionLeaderboardData: LeaderboardEntry[];
-    baseCountFacts: {bases: number, games: number}[];
+    baseCountFacts: {bases: number, games: number, avgDuration: string}[];
     gamesPlayedByMonthData: {month: string, gameCount: number}[];
 }
 
@@ -250,7 +250,8 @@ export const Home: React.FC<HomeProps> = ({
                                     <thead>
                                         <tr>
                                             <th>BASES</th>
-                                            <th># GAMES</th>
+                                            <th>GAMES</th>
+                                            <th>AVG DURATION</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -264,6 +265,9 @@ export const Home: React.FC<HomeProps> = ({
                                                     </td>
                                                     <td>
                                                         {x.games}
+                                                    </td>
+                                                    <td>
+                                                        {x.avgDuration}
                                                     </td>
                                                 </tr>
                                             ))
