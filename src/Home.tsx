@@ -17,6 +17,7 @@ interface HomeProps {
     avgTurnsPerGame: number;
     factionLeaderboardData: LeaderboardEntry[];
     baseCountFacts: {bases: number, games: number}[];
+    gamesPlayedByMonthData: {month: string, gameCount: number}[];
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -26,6 +27,7 @@ export const Home: React.FC<HomeProps> = ({
     , avgTurnsPerGame
     , factionLeaderboardData
     , baseCountFacts
+    , gamesPlayedByMonthData
 }) => {
 
     useEffect(
@@ -272,6 +274,55 @@ export const Home: React.FC<HomeProps> = ({
                             : (
                                 <p>
                                     Play some games...
+                                </p>
+                            )
+                    }
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
+                        Games by Month
+                    </h2>
+                    {
+                        gamesPlayedByMonthData.length > 0
+                            ? (
+                                <table
+                                    className="table"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th>MONTH</th>
+                                            <th>GAMES</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            gamesPlayedByMonthData.map(x =>(
+                                                <tr
+                                                    key={x.month}
+                                                >
+                                                    <td>
+                                                        {x.month}
+                                                    </td>
+                                                    <td>
+                                                        {x.gameCount}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            )
+                            : (
+                                <p>
+                                    Yep, play a game dummy : - )
                                 </p>
                             )
                     }

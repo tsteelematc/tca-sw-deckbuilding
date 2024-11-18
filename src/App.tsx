@@ -19,6 +19,7 @@ import {
   , getAvgTurnsPerGame
   , getFactionLeaderboard
   , getBaseCountFacts
+  , getMonthBasedGamesDistribution
 } from "./game-results";
 
 import localforage from 'localforage';
@@ -178,6 +179,7 @@ const App = () => {
           avgTurnsPerGame={getAvgTurnsPerGame(gameResults)}
           factionLeaderboardData={getFactionLeaderboard(gameResults)}
           baseCountFacts={getBaseCountFacts(gameResults)}
+          gamesPlayedByMonthData={getMonthBasedGamesDistribution(gameResults)}
         />,
       },
       {
