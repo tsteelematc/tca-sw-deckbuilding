@@ -171,7 +171,30 @@ const App = () => {
     }
     , []
   );
-    
+
+  useEffect(
+    () => {
+
+      const loadEmail = async () => {
+        
+        const savedEmail = await localforage.getItem<string>("email") ?? "";
+
+        if (!ignore) {
+          setEmailModalEmailAddress(savedEmail);
+        }
+      }
+
+      let ignore = false;
+
+      loadEmail();
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , []
+  );
+
   const myRouter = createHashRouter(
     [
       {
