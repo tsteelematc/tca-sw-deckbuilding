@@ -147,6 +147,8 @@ const App = () => {
 
   const emailModalRef = useRef<HTMLDialogElement | null>(null);
 
+  const [emailOnModal, setEmailOnModal] = useState("");
+  
   useEffect(
     () => {
 
@@ -169,6 +171,29 @@ const App = () => {
     }
     , []
   );
+
+  useEffect(
+    () => {
+
+      const loadEmail = async () => {
+        
+        const savedEmail = await localforage.getItem<string>("email") ?? "";
+
+        if (!ignore) {
+          setEmailOnModal(savedEmail);
+        }
+      }
+
+      let ignore = false;
+
+      loadEmail();
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , []
+  );  
     
   const myRouter = createHashRouter(
     [
@@ -278,14 +303,19 @@ const App = () => {
           className="modal-box"
         >
           <h3 
-            className="font-bold text-lg"
+            className="font-semibold text-md"
           >
-            Hello!
+            Enter email to load/save game results...
           </h3>
           <p 
             className="py-4"
           >
-            Click the button below to close
+            <input 
+                className="input input-bordered w-full" 
+                placeholder="Enter email"
+                value={emailOnModal} 
+                onChange={(e) => setEmailOnModal(e.target.value)}
+            />
           </p>
           <div 
             className="modal-action"
@@ -296,8 +326,13 @@ const App = () => {
               {/* if there is a button, it will close the modal */}
               <button 
                 className="btn btn-outline"
+                onClick={
+                  async () => {
+                    await localforage.setItem<string>("email", emailOnModal);
+                  }
+                }
               >
-                Close
+                Save
               </button>
             </form>
           </div>
