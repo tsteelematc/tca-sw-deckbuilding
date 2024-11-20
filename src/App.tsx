@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import {
@@ -145,6 +145,8 @@ const App = () => {
 
   const [darkMode, setDarkMode] = useState(false);
 
+  const emailModalRef = useRef<HTMLDialogElement | null>(null);
+
   useEffect(
     () => {
 
@@ -221,6 +223,7 @@ const App = () => {
         >
           <button 
             className="btn"
+            onClick={() => emailModalRef.current?.showModal()}
           >
             <svg 
               xmlns="http://www.w3.org/2000/svg" 
@@ -266,7 +269,40 @@ const App = () => {
         <RouterProvider
           router={myRouter}
         />
-      </div>      
+      </div>
+      <dialog
+        ref={emailModalRef}
+        className="modal modal-bottom sm:modal-middle"
+      >
+        <div 
+          className="modal-box"
+        >
+          <h3 
+            className="font-bold text-lg"
+          >
+            Hello!
+          </h3>
+          <p 
+            className="py-4"
+          >
+            Click the button below to close
+          </p>
+          <div 
+            className="modal-action"
+          >
+            <form 
+              method="dialog"
+            >
+              {/* if there is a button, it will close the modal */}
+              <button 
+                className="btn btn-outline"
+              >
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </div>
   );
 }
