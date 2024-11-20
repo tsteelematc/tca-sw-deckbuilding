@@ -294,6 +294,12 @@ const App = () => {
               {/* if there is a button in form, it will close the modal */}
               <button 
                 className="btn btn-outline"
+                onClick={async () => {
+                  await localforage.setItem(
+                    "email"
+                    , emailModalEmailAddress 
+                  );
+                }}
               >
                 Save
               </button>
