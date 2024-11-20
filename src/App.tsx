@@ -147,6 +147,8 @@ const App = () => {
 
   const emailModal = useRef<HTMLDialogElement | null>(null);
   
+  const [emailModalEmailAddress, setEmailModalEmailAddress] = useState("");
+
   useEffect(
     () => {
 
@@ -278,8 +280,8 @@ const App = () => {
           <input 
               className="input input-bordered w-full mt-3" 
               placeholder="Email address"
-              // value={newPlayerName} 
-              // onChange={(e) => setNewPlayerName(e.target.value)}
+              value={emailModalEmailAddress} 
+              onChange={(e) => setEmailModalEmailAddress(e.target.value)}
           />
 
 
