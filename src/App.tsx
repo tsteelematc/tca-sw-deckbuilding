@@ -270,15 +270,19 @@ const App = () => {
           className="modal-box"
         >
           <h3 
-            className="font-bold text-lg"
+            className="font-semi-bold text-lg"
           >
-            Hello!
+            Enter email address for loading/saving game results...
           </h3>
-          <p 
-            className="py-4"
-          >
-            Press ESC key or click the button below to close
-          </p>
+
+          <input 
+              className="input input-bordered w-full mt-3" 
+              placeholder="Email address"
+              // value={newPlayerName} 
+              // onChange={(e) => setNewPlayerName(e.target.value)}
+          />
+
+
           <div 
             className="modal-action"
           >
@@ -287,9 +291,9 @@ const App = () => {
             >
               {/* if there is a button in form, it will close the modal */}
               <button 
-                className="btn"
+                className="btn btn-outline"
               >
-                Close
+                Save
               </button>
             </form>
           </div>
