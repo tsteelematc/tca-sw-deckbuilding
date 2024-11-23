@@ -14,9 +14,8 @@ interface HomeProps {
     leaderboardData: LeaderboardEntry[];
     generalFactsData: GeneralFactsDisplay;
     setTitle: (t: string) => void;
-    avgTurnsPerGame: number;
     factionLeaderboardData: LeaderboardEntry[];
-    baseCountFacts: {bases: number, games: number, avgDuration: string}[];
+    baseCountFacts: {bases: number, games: number, avgDuration: string, avgTurns: string}[];
     gamesPlayedByMonthData: {month: string, gameCount: number}[];
 }
 
@@ -24,7 +23,6 @@ export const Home: React.FC<HomeProps> = ({
     leaderboardData
     , generalFactsData
     , setTitle
-    , avgTurnsPerGame
     , factionLeaderboardData
     , baseCountFacts
     , gamesPlayedByMonthData
@@ -219,17 +217,6 @@ export const Home: React.FC<HomeProps> = ({
                     }
                 </div>
             </div>
-            <div className="card card bg-base-100 shadow-xl mb-3">
-                <div className="card-body p-3 overflow-x-hidden">
-                    <h2 className="card-title">
-                        Avg Turns Per Game
-                    </h2>
-                    <h1 className="text-5xl font-bold">
-                        {avgTurnsPerGame.toFixed(2)}
-                    </h1>
-                </div>
-            </div>
-
             <div
                 className="card bg-base-100 shadow-xl mb-3"
             >
@@ -252,6 +239,7 @@ export const Home: React.FC<HomeProps> = ({
                                             <th>BASES</th>
                                             <th>GAMES</th>
                                             <th>AVG DURATION</th>
+                                            <th>AVG TURNS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -268,6 +256,9 @@ export const Home: React.FC<HomeProps> = ({
                                                     </td>
                                                     <td>
                                                         {x.avgDuration}
+                                                    </td>
+                                                    <td>
+                                                        {x.avgTurns}
                                                     </td>
                                                 </tr>
                                             ))

@@ -16,7 +16,6 @@ import {
   , getLeaderboard
   , getPreviousPlayers
   , getGeneralFacts
-  , getAvgTurnsPerGame
   , getFactionLeaderboard
   , getBaseCountFacts
   , getMonthBasedGamesDistribution
@@ -203,7 +202,6 @@ const App = () => {
           leaderboardData={getLeaderboard(gameResults)}
           generalFactsData={getGeneralFacts(gameResults)} 
           setTitle={setTitle}
-          avgTurnsPerGame={getAvgTurnsPerGame(gameResults)}
           factionLeaderboardData={getFactionLeaderboard(gameResults)}
           baseCountFacts={getBaseCountFacts(gameResults)}
           gamesPlayedByMonthData={getMonthBasedGamesDistribution(gameResults)}
