@@ -17,6 +17,7 @@ interface HomeProps {
     factionLeaderboardData: LeaderboardEntry[];
     baseCountFacts: {bases: number, games: number, avgDuration: string, avgTurns: string}[];
     gamesPlayedByMonthData: {month: string, gameCount: number}[];
+    starshipFacts: {avgWinningPlayerBasesDestroyed: string, avgLosingPlayerBasesDestroyed: string};
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -26,6 +27,7 @@ export const Home: React.FC<HomeProps> = ({
     , factionLeaderboardData
     , baseCountFacts
     , gamesPlayedByMonthData
+    , starshipFacts
 }) => {
 
     useEffect(
@@ -317,6 +319,41 @@ export const Home: React.FC<HomeProps> = ({
                                 </p>
                             )
                     }
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title text-sm"
+                    >
+                        Do winners use more starships? If so, losers may be destroying more starships per game out of necessity...
+                    </h2>
+                    <table
+                        className="table"
+                    >
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Losers destroy
+                                </td>
+                                <td>
+                                    {starshipFacts.avgWinningPlayerBasesDestroyed} bases/game
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Winners destroy
+                                </td>
+                                <td>
+                                    {starshipFacts.avgLosingPlayerBasesDestroyed} bases/game
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

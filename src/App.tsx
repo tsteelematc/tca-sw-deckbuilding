@@ -18,7 +18,8 @@ import {
   , getGeneralFacts
   , getFactionLeaderboard
   , getBaseCountFacts
-  , getMonthBasedGamesDistribution
+  , getMonthBasedGamesDistribution,
+  getStarshipFacts
 } from "./game-results";
 
 import localforage from 'localforage';
@@ -205,6 +206,7 @@ const App = () => {
           factionLeaderboardData={getFactionLeaderboard(gameResults)}
           baseCountFacts={getBaseCountFacts(gameResults)}
           gamesPlayedByMonthData={getMonthBasedGamesDistribution(gameResults)}
+          starshipFacts={getStarshipFacts(gameResults)}
         />,
       },
       {

@@ -225,9 +225,49 @@ export const getBaseCountFacts = (results: GameResult[]) => {
 
 export const getStarshipFacts = (results: GameResult[]) => {
 
+    const winningPlayerTurns = results.map(
+        x => x.turns.filter(
+            y => y.player === x.winner
+        )
+    );
+
+    const losingPlayerStarshipsDestroyedPerGame = winningPlayerTurns.map(
+        x => x.reduce(
+            (acc, y) => acc + y.basesDestroyedCount 
+            , 0
+        )
+    );
+
+    const losingPlayerTurns = results.map(
+        x => x.turns.filter(
+            y => y.player !== x.winner
+        )
+    );
+
+    const winningPlayerStarshipsDestroyedPerGame = losingPlayerTurns.map(
+        x => x.reduce(
+            (acc, y) => acc + y.basesDestroyedCount 
+            , 0
+        )
+    );
+
     return {
-        avgWinningPlayerBasesDestroyed: "4.25"
-        , avgWinningPlayerSabotageOrBountyItems: "2.33"
+        avgWinningPlayerBasesDestroyed: winningPlayerStarshipsDestroyedPerGame.length > 0
+            ? (
+                winningPlayerStarshipsDestroyedPerGame.reduce(
+                    (acc, y) => acc + y
+                    , 0
+                ) / winningPlayerStarshipsDestroyedPerGame.length
+            ).toFixed(2)
+            : "n/a"
+            , avgLosingPlayerBasesDestroyed: losingPlayerStarshipsDestroyedPerGame.length > 0
+            ? (
+                losingPlayerStarshipsDestroyedPerGame.reduce(
+                    (acc, y) => acc + y
+                    , 0
+                ) / losingPlayerStarshipsDestroyedPerGame.length
+            ).toFixed(2)
+            : "n/a"
     };
 };
 
