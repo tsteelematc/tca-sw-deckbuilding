@@ -170,7 +170,7 @@ export const getBaseCountFacts = (results: GameResult[]) => {
     const arrayOfNumberOfWinningPlayerBasesDestroyed = results.map(
         x => x
             .turns.filter(
-                y => y.player = x.winner
+                y => y.player === x.winner
             )
             .reduce(
                 (acc, y) => acc + y.basesDestroyedCount
