@@ -236,8 +236,7 @@ export const Home: React.FC<HomeProps> = ({
                                 >
                                     <thead>
                                         <tr>
-                                            <th>BASES</th>
-                                            <th>GAMES</th>
+                                            <th>BASES (GAMES)</th>
                                             <th>AVG DURATION</th>
                                             <th>AVG TURNS</th>
                                         </tr>
@@ -249,10 +248,7 @@ export const Home: React.FC<HomeProps> = ({
                                                     key={x.bases}
                                                 >
                                                     <td>
-                                                        {x.bases}
-                                                    </td>
-                                                    <td>
-                                                        {x.games}
+                                                        {x.bases} ({x.games})
                                                     </td>
                                                     <td>
                                                         {x.avgDuration}
