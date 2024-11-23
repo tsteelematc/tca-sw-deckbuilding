@@ -18,6 +18,7 @@ interface HomeProps {
     baseCountFacts: {bases: number, games: number, avgDuration: string, avgTurns: string}[];
     gamesPlayedByMonthData: {month: string, gameCount: number}[];
     starshipFacts: {avgWinningPlayerBasesDestroyed: string, avgLosingPlayerBasesDestroyed: string};
+    sabotageOrBountyFacts: {avgWinningPlayerSabotageOrBounty: string, avgLosingPlayerSabotageOrBounty: string};
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -28,6 +29,7 @@ export const Home: React.FC<HomeProps> = ({
     , baseCountFacts
     , gamesPlayedByMonthData
     , starshipFacts
+    , sabotageOrBountyFacts
 }) => {
 
     useEffect(
@@ -350,6 +352,41 @@ export const Home: React.FC<HomeProps> = ({
                                 </td>
                                 <td>
                                     {starshipFacts.avgLosingPlayerBasesDestroyed} bases/game
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title text-sm"
+                    >
+                        Do winners sabotage or bounty more?
+                    </h2>
+                    <table
+                        className="table"
+                    >
+                        <tbody>
+                            <tr>
+                                <td>
+                                    Winners sabotage or bounty
+                                </td>
+                                <td>
+                                    {sabotageOrBountyFacts.avgWinningPlayerSabotageOrBounty} items/game
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Losers sabotage or bounty
+                                </td>
+                                <td>
+                                    {sabotageOrBountyFacts.avgLosingPlayerSabotageOrBounty} items/game
                                 </td>
                             </tr>
                         </tbody>

@@ -19,7 +19,8 @@ import {
   , getFactionLeaderboard
   , getBaseCountFacts
   , getMonthBasedGamesDistribution,
-  getStarshipFacts
+  getStarshipFacts,
+  getSabotageAndBountyFacts
 } from "./game-results";
 
 import localforage from 'localforage';
@@ -39,14 +40,14 @@ const dummyGameResults: GameResult[] = [
           {
               turnNumber: 1
               , player: "Tom"
-              , sabotageOrBountyItemCount: 0
+              , sabotageOrBountyItemCount: 4
               , starshipsDestroyedCount: 0
               , basesDestroyedCount: 1
           }
           , {
               turnNumber: 1
               , player: "Jack"
-              , sabotageOrBountyItemCount: 0
+              , sabotageOrBountyItemCount: 10
               , starshipsDestroyedCount: 0
               , basesDestroyedCount: 0
           }
@@ -207,6 +208,7 @@ const App = () => {
           baseCountFacts={getBaseCountFacts(gameResults)}
           gamesPlayedByMonthData={getMonthBasedGamesDistribution(gameResults)}
           starshipFacts={getStarshipFacts(gameResults)}
+          sabotageOrBountyFacts={getSabotageAndBountyFacts(gameResults)}
         />,
       },
       {

@@ -260,7 +260,7 @@ export const getStarshipFacts = (results: GameResult[]) => {
                 ) / winningPlayerStarshipsDestroyedPerGame.length
             ).toFixed(2)
             : "n/a"
-            , avgLosingPlayerBasesDestroyed: losingPlayerStarshipsDestroyedPerGame.length > 0
+        , avgLosingPlayerBasesDestroyed: losingPlayerStarshipsDestroyedPerGame.length > 0
             ? (
                 losingPlayerStarshipsDestroyedPerGame.reduce(
                     (acc, y) => acc + y
@@ -294,6 +294,54 @@ export const getMonthBasedGamesDistribution = (results: GameResult[]) => {
             ).length
         }))
     );
+};
+
+export const getSabotageAndBountyFacts = (results: GameResult[]) => {
+
+    const winningPlayerTurns = results.map(
+        x => x.turns.filter(
+            y => y.player === x.winner
+        )
+    );
+
+    const winningPlayerSabotageOrBountyPerGame = winningPlayerTurns.map(
+        x => x.reduce(
+            (acc, y) => acc + y.sabotageOrBountyItemCount 
+            , 0
+        )
+    );
+
+    const losingPlayerTurns = results.map(
+        x => x.turns.filter(
+            y => y.player !== x.winner
+        )
+    );
+
+    const losingPlayerSabotageOrBountyPerGame = losingPlayerTurns.map(
+        x => x.reduce(
+            (acc, y) => acc + y.sabotageOrBountyItemCount
+            , 0
+        )
+    );
+
+    return {
+        avgWinningPlayerSabotageOrBounty: winningPlayerSabotageOrBountyPerGame.length > 0
+            ? (
+                winningPlayerSabotageOrBountyPerGame.reduce(
+                    (acc, y) => acc + y
+                    , 0
+                ) / winningPlayerSabotageOrBountyPerGame.length
+            ).toFixed(2)
+            : "n/a"
+        , avgLosingPlayerSabotageOrBounty: losingPlayerSabotageOrBountyPerGame.length > 0
+            ? (
+                losingPlayerSabotageOrBountyPerGame.reduce(
+                    (acc, y) => acc + y
+                    , 0
+                ) / losingPlayerSabotageOrBountyPerGame.length
+            ).toFixed(2)
+            : "n/a"
+    };
 };
 
 //
