@@ -343,7 +343,7 @@ export const Home: React.FC<HomeProps> = ({
                                     Losers destroy
                                 </td>
                                 <td>
-                                    {starshipFacts.avgWinningPlayerBasesDestroyed} bases/game
+                                    {starshipFacts.avgWinningPlayerBasesDestroyed} starships/game
                                 </td>
                             </tr>
                             <tr>
@@ -351,7 +351,7 @@ export const Home: React.FC<HomeProps> = ({
                                     Winners destroy
                                 </td>
                                 <td>
-                                    {starshipFacts.avgLosingPlayerBasesDestroyed} bases/game
+                                    {starshipFacts.avgLosingPlayerBasesDestroyed} starships/game
                                 </td>
                             </tr>
                         </tbody>
