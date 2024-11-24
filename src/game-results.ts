@@ -233,7 +233,7 @@ export const getStarshipFacts = (results: GameResult[]) => {
 
     const losingPlayerStarshipsDestroyedPerGame = winningPlayerTurns.map(
         x => x.reduce(
-            (acc, y) => acc + y.basesDestroyedCount 
+            (acc, y) => acc + y.starshipsDestroyedCount
             , 0
         )
     );
@@ -246,7 +246,7 @@ export const getStarshipFacts = (results: GameResult[]) => {
 
     const winningPlayerStarshipsDestroyedPerGame = losingPlayerTurns.map(
         x => x.reduce(
-            (acc, y) => acc + y.basesDestroyedCount 
+            (acc, y) => acc + y.starshipsDestroyedCount
             , 0
         )
     );
