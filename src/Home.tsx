@@ -336,8 +336,13 @@ export const Home: React.FC<HomeProps> = ({
                     <h2
                         className="card-title text-sm"
                     >
-                        Do winners use more starships? If so, losers may be destroying more starships per game out of necessity...
+                        Do winners use more starships?
                     </h2>
+                    <p 
+                        className="text-sm font-thin"
+                    >
+                        If so, losers may be destroying more starships per game out of necessity...
+                    </p>
                     <table
                         className="table"
                     >
