@@ -19,6 +19,7 @@ interface HomeProps {
     gamesPlayedByMonthData: {month: string, gameCount: number}[];
     starshipFacts: {avgWinningPlayerBasesDestroyed: string, avgLosingPlayerBasesDestroyed: string};
     sabotageOrBountyFacts: {avgWinningPlayerSabotageOrBounty: string, avgLosingPlayerSabotageOrBounty: string};
+    gameResults: {timestamp: string, winner: string, loser: string}[];
 }
 
 export const Home: React.FC<HomeProps> = ({
@@ -30,6 +31,7 @@ export const Home: React.FC<HomeProps> = ({
     , gamesPlayedByMonthData
     , starshipFacts
     , sabotageOrBountyFacts
+    , gameResults
 }) => {
 
     useEffect(
@@ -400,6 +402,59 @@ export const Home: React.FC<HomeProps> = ({
                             </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+            <div
+                className="card bg-base-100 shadow-xl mb-3"
+            >
+                <div
+                    className="card-body p-3 overflow-x-hidden"
+                >
+                    <h2
+                        className="card-title"
+                    >
+                        All Games
+                    </h2>
+                    {
+                        gameResults.length > 0
+                            ? (
+                                <table
+                                    className="table"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th>DATE</th>
+                                            <th>W</th>
+                                            <th>L</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            gameResults.map(x =>(
+                                                <tr
+                                                    key={x.timestamp}
+                                                >
+                                                    <td>
+                                                        {new Date(x.timestamp).toLocaleString("en-US")}
+                                                    </td>
+                                                    <td>
+                                                        {x.winner}
+                                                    </td>
+                                                    <td>
+                                                        {x.loser}
+                                                    </td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+                            )
+                            : (
+                                <p>
+                                    Play some games ! ! !
+                                </p>
+                            )
+                    }
                 </div>
             </div>
         </div>

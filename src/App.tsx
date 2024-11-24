@@ -24,6 +24,7 @@ import {
 } from "./game-results";
 
 import localforage from 'localforage';
+import { lookupService } from 'dns';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -209,6 +210,19 @@ const App = () => {
           gamesPlayedByMonthData={getMonthBasedGamesDistribution(gameResults)}
           starshipFacts={getStarshipFacts(gameResults)}
           sabotageOrBountyFacts={getSabotageAndBountyFacts(gameResults)}
+          gameResults={
+            gameResults
+              .map(
+                x => ({
+                  timestamp: x.endTime
+                  , winner: `${x.winner} (${x.winningFaction})` 
+                  , loser: `${x.players.find(y => y !== x.winner)} (${x.losingFaction})`
+                })
+              )
+              .sort(
+                (a, b) => b.timestamp.localeCompare(a.timestamp)
+              )
+          }
         />,
       },
       {
