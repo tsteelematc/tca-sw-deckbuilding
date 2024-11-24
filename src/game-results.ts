@@ -290,7 +290,7 @@ export const getMonthBasedGamesDistribution = (results: GameResult[]) => {
         ] as [string, number][]).map(x => ({
             month: x[0]
             , gameCount: results.filter(
-                y => new Date(y.startTime).getMonth() == x[1]
+                y => new Date(y.startTime).getMonth() === x[1]
             ).length
         }))
     );
