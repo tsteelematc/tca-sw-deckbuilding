@@ -24,7 +24,7 @@ import {
 } from "./game-results";
 
 import localforage from 'localforage';
-import { saveGameToCloud } from './tca-cloud-api';
+import { loadGamesFromCloud, saveGameToCloud } from './tca-cloud-api';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -219,6 +219,34 @@ const App = () => {
     , []
   );  
     
+  useEffect(
+    () => {
+
+      const loadGameResults = async () => {
+        
+        const grs = await loadGamesFromCloud(
+          emailForCloudApi
+          , "tca-sw-deckbuilding-24f"
+        );
+
+        if (!ignore) {
+          setGameResults(grs);
+        }
+      }
+
+      let ignore = false;
+
+      if (emailForCloudApi.length > 0) {
+        loadGameResults();
+      }
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , [emailForCloudApi]
+  );  
+
   const myRouter = createHashRouter(
     [
       {
@@ -353,7 +381,11 @@ const App = () => {
                 className="btn btn-outline"
                 onClick={
                   async () => {
-                    await localforage.setItem<string>("email", emailOnModal);
+                    const savedEmail = await localforage.setItem<string>("email", emailOnModal);
+
+                    if (savedEmail.length > 0) {
+                      setEmailForCloudApi(savedEmail)
+                    }
                   }
                 }
               >
