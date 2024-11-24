@@ -143,12 +143,14 @@ const App = () => {
 
     try {
       
-      await saveGameToCloud(
-        emailForCloudApi
-        , "tca-sw-deckbuilding-24f"
-        , newResult.endTime
-        , newResult
-      );
+      if (emailForCloudApi.length > 0) {
+        await saveGameToCloud(
+          emailForCloudApi
+          , "tca-sw-deckbuilding-24f"
+          , newResult.endTime
+          , newResult
+        );
+      }
 
       setGameResults([
         ...gameResults 
