@@ -236,11 +236,12 @@ export const Home: React.FC<HomeProps> = ({
                         baseCountFacts.length > 0
                             ? (
                                 <table
-                                    className="table"
+                                    className="table table-md"
                                 >
                                     <thead>
                                         <tr>
-                                            <th>BASES (GAMES)</th>
+                                            <th>BASES</th>
+                                            <th>GAMES</th>
                                             <th>AVG DURATION</th>
                                             <th>AVG TURNS</th>
                                         </tr>
@@ -252,7 +253,10 @@ export const Home: React.FC<HomeProps> = ({
                                                     key={x.bases}
                                                 >
                                                     <td>
-                                                        {x.bases} ({x.games})
+                                                        {x.bases}
+                                                    </td>
+                                                    <td>
+                                                        {x.games}
                                                     </td>
                                                     <td>
                                                         {x.avgDuration}
