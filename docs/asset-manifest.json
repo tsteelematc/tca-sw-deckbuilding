@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/tca-sw-deckbuilding/static/css/main.35b2272a.css",
-    "main.js": "/tca-sw-deckbuilding/static/js/main.068dae37.js",
+    "main.css": "/tca-sw-deckbuilding/static/css/main.b2bfd95f.css",
+    "main.js": "/tca-sw-deckbuilding/static/js/main.6be38385.js",
     "static/js/453.070bf121.chunk.js": "/tca-sw-deckbuilding/static/js/453.070bf121.chunk.js",
     "index.html": "/tca-sw-deckbuilding/index.html",
-    "main.35b2272a.css.map": "/tca-sw-deckbuilding/static/css/main.35b2272a.css.map",
-    "main.068dae37.js.map": "/tca-sw-deckbuilding/static/js/main.068dae37.js.map",
+    "main.b2bfd95f.css.map": "/tca-sw-deckbuilding/static/css/main.b2bfd95f.css.map",
+    "main.6be38385.js.map": "/tca-sw-deckbuilding/static/js/main.6be38385.js.map",
     "453.070bf121.chunk.js.map": "/tca-sw-deckbuilding/static/js/453.070bf121.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.35b2272a.css",
-    "static/js/main.068dae37.js"
+    "static/css/main.b2bfd95f.css",
+    "static/js/main.6be38385.js"
   ]
 }
