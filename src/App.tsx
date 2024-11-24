@@ -24,6 +24,7 @@ import {
 } from "./game-results";
 
 import localforage from 'localforage';
+import { saveGameToCloud } from './tca-cloud-api';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -134,13 +135,30 @@ const App = () => {
   // const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
   const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
+  
   //
   // Other code... Calculated state...
   //
-  const addNewGameResult = (newResult: GameResult) => setGameResults([
-    ...gameResults 
-    , newResult
-  ]);
+  const addNewGameResult = async (newResult: GameResult) => {
+
+    try {
+      
+      await saveGameToCloud(
+        emailForCloudApi
+        , "tca-sw-deckbuilding-24f"
+        , newResult.endTime
+        , newResult
+      );
+
+      setGameResults([
+        ...gameResults 
+        , newResult
+      ]);
+    }
+    catch(e) {
+      console.error(e);
+    }
+  };
 
   const [title, setTitle] = useState(AppTitle);
 
@@ -149,6 +167,8 @@ const App = () => {
   const emailModalRef = useRef<HTMLDialogElement | null>(null);
 
   const [emailOnModal, setEmailOnModal] = useState("");
+
+  const [emailForCloudApi, setEmailForCloudApi] = useState("");
   
   useEffect(
     () => {
@@ -182,6 +202,7 @@ const App = () => {
 
         if (!ignore) {
           setEmailOnModal(savedEmail);
+          setEmailForCloudApi(savedEmail);
         }
       }
 
