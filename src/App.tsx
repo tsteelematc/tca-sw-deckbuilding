@@ -11,21 +11,24 @@ import { Setup } from "./Setup";
 import { Play } from "./Play";
 
 import { 
-  CurrentPlayer,
-  GameResult 
+  CurrentPlayer
+  , GameResult 
   , getLeaderboard
   , getPreviousPlayers
   , getGeneralFacts
   , getFactionLeaderboard
   , getBaseCountFacts
-  , getMonthBasedGamesDistribution,
-  getStarshipFacts,
-  getSabotageAndBountyFacts
+  , getMonthBasedGamesDistribution
+  , getStarshipFacts
+  , getSabotageAndBountyFacts
 } from "./game-results";
 
 import localforage from 'localforage';
 
-import { saveGameToCloud } from './tca-cloud-api';
+import { 
+  saveGameToCloud
+  , loadGamesFromCloud 
+} from './tca-cloud-api';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -220,6 +223,34 @@ const App = () => {
     , []
   );  
     
+  useEffect(
+    () => {
+
+      const loadGameResults = async () => {
+        
+        const savedGameResults = await loadGamesFromCloud(
+          emailForCloudApi
+          , "tca-sw-deckbuilding-24f"
+        );
+
+        if (!ignore) {
+          setGameResults(savedGameResults);
+        }
+      }
+
+      let ignore = false;
+
+      if (emailForCloudApi.length > 0) {
+        loadGameResults();
+      }
+      
+      return () => {
+        ignore = true;
+      }
+    }
+    , [emailForCloudApi]
+  );  
+
   const myRouter = createHashRouter(
     [
       {
