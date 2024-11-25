@@ -143,14 +143,16 @@ const App = () => {
 
     try {
 
-      await saveGameToCloud(
-        "ts@mc.edu"
-        , "tca-sw-deckbuilding-24f"
-        , newResult.endTime
-        , newResult
-      );
+      if (emailForCloudApi.length > 0) {
+        await saveGameToCloud(
+          emailForCloudApi
+          , "tca-sw-deckbuilding-24f"
+          , newResult.endTime
+          , newResult
+        );
+      }
 
-
+      // Optimistically updates the lifted state... Okay-ish, it's never failed for me : - )
       setGameResults([
         ...gameResults 
         , newResult
@@ -168,6 +170,8 @@ const App = () => {
   const emailModalRef = useRef<HTMLDialogElement | null>(null);
 
   const [emailOnModal, setEmailOnModal] = useState("");
+  
+  const [emailForCloudApi, setEmailForCloudApi] = useState("");
   
   useEffect(
     () => {
@@ -201,6 +205,7 @@ const App = () => {
 
         if (!ignore) {
           setEmailOnModal(savedEmail);
+          setEmailForCloudApi(savedEmail);
         }
       }
 
@@ -362,7 +367,11 @@ const App = () => {
                 className="btn btn-outline"
                 onClick={
                   async () => {
-                    await localforage.setItem<string>("email", emailOnModal);
+                    const savedEmail = await localforage.setItem<string>("email", emailOnModal);
+
+                    if (savedEmail.length > 0) {
+                      setEmailForCloudApi(savedEmail);
+                    }
                   }
                 }
               >
