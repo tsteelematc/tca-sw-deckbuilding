@@ -30,113 +30,12 @@ import {
   , loadGamesFromCloud 
 } from './tca-cloud-api';
 
-const dummyGameResults: GameResult[] = [
-  {
-      startTime: "2024-10-20T20:08:47.024Z"
-      , endTime: "2024-10-20T20:23:37.024Z"
-      , winner: "Tom"
-      , winningFaction: "Rebel"
-      , losingFaction: "Empire"
-      , players: [
-          "Tom"
-          , "Jack"
-      ]
-      , turns: [
-          {
-              turnNumber: 1
-              , player: "Tom"
-              , sabotageOrBountyItemCount: 4
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 1
-          }
-          , {
-              turnNumber: 1
-              , player: "Jack"
-              , sabotageOrBountyItemCount: 10
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-          , {
-              turnNumber: 2
-              , player: "Tom"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 1
-          }
-          , {
-              turnNumber: 2
-              , player: "Jack"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-          , {
-              turnNumber: 3
-              , player: "Tom"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-          , {
-              turnNumber: 3
-              , player: "Jack"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-      ]
-  }
-  , {
-      startTime: "2024-10-20T20:27:47.024Z"
-      , endTime: "2024-10-20T20:33:37.024Z"
-      , winner: "Jack"
-      , winningFaction: "Empire"
-      , losingFaction: "Rebel"
-      , players: [
-          "Tom"
-          , "Jack"
-      ]
-      , turns: [
-          {
-              turnNumber: 1
-              , player: "Tom"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-          , {
-              turnNumber: 1
-              , player: "Jack"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 1
-          }
-          , {
-              turnNumber: 2
-              , player: "Tom"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-          , {
-              turnNumber: 2
-              , player: "Jack"
-              , sabotageOrBountyItemCount: 0
-              , starshipsDestroyedCount: 0
-              , basesDestroyedCount: 0
-          }
-      ]
-  }
-];
-
-
 const App = () => {
 
   //
   // React hooks first...
   //
-  const [gameResults, setGameResults] = useState(dummyGameResults);
-  // const [gameResults, setGameResults] = useState<GameResult[]>([]);
+  const [gameResults, setGameResults] = useState<GameResult[]>([]);
 
   const [currentPlayers, setCurrentPlayers] = useState<CurrentPlayer[]>([]);
   //
