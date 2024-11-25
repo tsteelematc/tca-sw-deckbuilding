@@ -24,7 +24,8 @@ import {
 } from "./game-results";
 
 import localforage from 'localforage';
-import { lookupService } from 'dns';
+
+import { saveGameToCloud } from './tca-cloud-api';
 
 const dummyGameResults: GameResult[] = [
   {
@@ -138,10 +139,27 @@ const App = () => {
   //
   // Other code... Calculated state...
   //
-  const addNewGameResult = (newResult: GameResult) => setGameResults([
-    ...gameResults 
-    , newResult
-  ]);
+  const addNewGameResult = async (newResult: GameResult) => {
+
+    try {
+
+      await saveGameToCloud(
+        "ts@mc.edu"
+        , "tca-sw-deckbuilding-24f"
+        , newResult.endTime
+        , newResult
+      );
+
+
+      setGameResults([
+        ...gameResults 
+        , newResult
+      ]);
+    }
+    catch (e) {
+      console.error(e);
+    }
+  };
 
   const [title, setTitle] = useState(AppTitle);
 
