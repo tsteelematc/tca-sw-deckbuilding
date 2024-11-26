@@ -341,7 +341,7 @@ export const Home: React.FC<HomeProps> = ({
                         Do winners use more starships?
                     </h2>
                     <p 
-                        className="text-sm font-thin"
+                        className="text-sm font-light"
                     >
                         If so, losers may be destroying more starships per game out of necessity...
                     </p>
@@ -451,7 +451,7 @@ export const Home: React.FC<HomeProps> = ({
                             )
                             : (
                                 <p>
-                                    Play some games ! ! !
+                                    Yep, play some games ! ! !
                                 </p>
                             )
                     }

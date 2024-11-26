@@ -85,6 +85,12 @@ export const Setup: React.FC<SetupProps> = ({
 
     return (
         <div>
+            <button 
+                className="btn btn-xs ml-auto mb-3 font-light"
+                onClick={() => myNav(-1)}
+            >
+                &lt;&nbsp; Back
+            </button>
             <button
                 className={`btn btn-lg ${!twoPlayersAndFactionsChosen ? "btn-outline" : "btn-neutral"} mb-3 w-full overflow-hidden`}
                 // disabled={!twoPlayersAndFactionsChosen}
