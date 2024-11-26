@@ -319,12 +319,19 @@ export const Play: React.FC<PlayProps> = ({
                 <div
                     className="card-body p-3 overflow-x-hidden"
                 >
-                    <h2
-                        className="card-title"
-                    >
-                        Game Over
-                    </h2>
-
+                    <div className="flex items-end">
+                        <h2
+                            className="card-title"
+                        >
+                            Game Over
+                        </h2>
+                        <button 
+                            className="btn btn-outline btn-xs ml-auto"
+                            onClick={() => nav(-2)}
+                        >
+                            Quit
+                        </button>
+                    </div>
                     <div
                         className="flex flex-col"
                     >
