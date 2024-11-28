@@ -244,8 +244,7 @@ export const Home: React.FC<HomeProps> = ({
                                         <tr>
                                             <th>BASES</th>
                                             <th>GAMES</th>
-                                            <th>AVG DURATION</th>
-                                            <th>AVG TURNS</th>
+                                            <th>AVG TIME/TURNS</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -261,10 +260,7 @@ export const Home: React.FC<HomeProps> = ({
                                                         {x.games}
                                                     </td>
                                                     <td>
-                                                        {x.avgDuration}
-                                                    </td>
-                                                    <td>
-                                                        {x.avgTurns}
+                                                        {x.avgDuration}/{x.avgTurns}
                                                     </td>
                                                 </tr>
                                             ))
