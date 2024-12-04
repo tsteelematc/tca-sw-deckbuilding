@@ -2,7 +2,7 @@
   "name": "tca-sw-deckbuilding",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://2024-fall-afe-mowe.github.io/tca-sw-deckbuilding",
+  "homepage": "https://tsteelematc.github.io/tca-sw-deckbuilding",
   "dependencies": {
     "@aws-sdk/util-dynamodb": "^3.699.0",
     "@testing-library/jest-dom": "^5.17.0",
